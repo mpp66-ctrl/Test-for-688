@@ -1,0 +1,154 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"Data Gathering\"\n",
+        "author:\n",
+        "  - name: Manan Patel\n",
+        "    affiliations:\n",
+        "      - ref: bu\n",
+        "affiliations:\n",
+        "  - id: bu\n",
+        "    name: Boston University\n",
+        "    city: Boston\n",
+        "    state: MA\n",
+        "date: \"June 11, 2026\"\n",
+        "date-modified: \"June 11, 2026\"\n",
+        "date-format: long\n",
+        "format:\n",
+        "  html:\n",
+        "    default: true\n",
+        "---\n",
+        "\n",
+        "## Overview\n",
+        "\n",
+        "In this section, we gather job market news data using the NewsAPI. The goal is to collect recent articles related to hiring, employment, and the job market to analyze trends over time.\n",
+        "\n",
+        "## Setup\n",
+        "\n",
+        "We use the following Python libraries:\n",
+        "\n",
+        "- `requests` — to call the NewsAPI\n",
+        "- `pandas` — to store and organize the data"
+      ],
+      "id": "dda92020"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import requests\n",
+        "import pandas as pd"
+      ],
+      "id": "c8eb038c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## API Connection\n",
+        "\n",
+        "We connect to the NewsAPI using our API key and search for articles related to the job market."
+      ],
+      "id": "672b188b"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "API_KEY = \"9d9a703569914e82a61aa211e31ddba1\"\n",
+        "url = \"https://newsapi.org/v2/everything\"\n",
+        "\n",
+        "params = {\n",
+        "    \"q\": \"job market hiring employment\",\n",
+        "    \"language\": \"en\",\n",
+        "    \"sortBy\": \"publishedAt\",\n",
+        "    \"pageSize\": 100,\n",
+        "    \"apiKey\": API_KEY\n",
+        "}\n",
+        "\n",
+        "response = requests.get(url, params=params)\n",
+        "data = response.json()\n",
+        "\n",
+        "print(\"Status:\", data[\"status\"])\n",
+        "print(\"Total articles found:\", data[\"totalResults\"])"
+      ],
+      "id": "60b33fb5",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Load into DataFrame\n",
+        "\n",
+        "We load the articles into a pandas DataFrame for easy analysis."
+      ],
+      "id": "b1fdec1f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "articles = data[\"articles\"]\n",
+        "df = pd.DataFrame(articles)\n",
+        "\n",
+        "print(\"Shape:\", df.shape)\n",
+        "df.head()"
+      ],
+      "id": "f2879d68",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Save to CSV\n",
+        "\n",
+        "We save the raw data to a CSV file for use in later steps."
+      ],
+      "id": "98e700c4"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df.to_csv(\"job_market_news.csv\", index=False)\n",
+        "print(\"Data saved to job_market_news.csv\")"
+      ],
+      "id": "1a73f422",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Summary\n",
+        "\n",
+        "- Connected to NewsAPI successfully\n",
+        "- Retrieved **97 articles** across 8 columns\n",
+        "- Columns include: source, author, title, description, url, urlToImage, publishedAt\n",
+        "- Data saved to `job_market_news.csv` for cleaning and analysis in the next step"
+      ],
+      "id": "3320cff8"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "C:\\Users\\munni\\AppData\\Local\\Programs\\Python\\Python310\\share\\jupyter\\kernels\\python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
