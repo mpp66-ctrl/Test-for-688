@@ -38,7 +38,7 @@ import pandas as pd
 We connect to the NewsAPI using our API key and search for articles related to the job market.
 
 ```{python}
-API_KEY = "your_api_key_here"
+API_KEY = "9d9a703569914e82a61aa211e31ddba1"
 url = "https://newsapi.org/v2/everything"
 
 params = {

@@ -1,0 +1,21 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "News Analysis Dashboard for stocks"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: About
+      - href: data_gathering.qmd
+        text: Data Gathering
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
