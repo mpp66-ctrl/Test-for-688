@@ -1,0 +1,184 @@
+[
+  {
+    "objectID": "war_news.html",
+    "href": "war_news.html",
+    "title": "War News",
+    "section": "",
+    "text": "This section covers global conflicts and their impact on markets and employment."
+  },
+  {
+    "objectID": "war_news.html#overview",
+    "href": "war_news.html#overview",
+    "title": "War News",
+    "section": "",
+    "text": "This section covers global conflicts and their impact on markets and employment."
+  },
+  {
+    "objectID": "war_news.html#key-topics",
+    "href": "war_news.html#key-topics",
+    "title": "War News",
+    "section": "Key Topics",
+    "text": "Key Topics\n\nGlobal conflict zones\nDefense sector impact\nSupply chain disruptions\nEnergy price impacts\nRefugee employment trends"
+  },
+  {
+    "objectID": "war_news.html#key-findings",
+    "href": "war_news.html#key-findings",
+    "title": "War News",
+    "section": "Key Findings",
+    "text": "Key Findings\n\nDefense sector hiring up 15% due to global tensions\nSupply chain disruptions affecting manufacturing jobs\nEnergy prices volatile due to ongoing conflicts"
+  },
+  {
+    "objectID": "stock_news.html",
+    "href": "stock_news.html",
+    "title": "Stock News",
+    "section": "",
+    "text": "This section covers the latest stock market news and financial analysis."
+  },
+  {
+    "objectID": "stock_news.html#overview",
+    "href": "stock_news.html#overview",
+    "title": "Stock News",
+    "section": "",
+    "text": "This section covers the latest stock market news and financial analysis."
+  },
+  {
+    "objectID": "stock_news.html#key-topics",
+    "href": "stock_news.html#key-topics",
+    "title": "Stock News",
+    "section": "Key Topics",
+    "text": "Key Topics\n\nStock market trends\nEarnings reports\nMarket volatility\nTech sector performance\nS&P 500 updates"
+  },
+  {
+    "objectID": "stock_news.html#key-findings",
+    "href": "stock_news.html#key-findings",
+    "title": "Stock News",
+    "section": "Key Findings",
+    "text": "Key Findings\n\nTech stocks continue to outperform broader market\nAI related companies seeing highest growth\nEnergy sector showing stability amid global tensions"
+  },
+  {
+    "objectID": "government_news.html",
+    "href": "government_news.html",
+    "title": "Government News",
+    "section": "",
+    "text": "This section covers government policies, regulations, and political developments."
+  },
+  {
+    "objectID": "government_news.html#overview",
+    "href": "government_news.html#overview",
+    "title": "Government News",
+    "section": "",
+    "text": "This section covers government policies, regulations, and political developments."
+  },
+  {
+    "objectID": "government_news.html#key-topics",
+    "href": "government_news.html#key-topics",
+    "title": "Government News",
+    "section": "Key Topics",
+    "text": "Key Topics\n\nFederal Reserve decisions\nGovernment spending bills\nTrade policies\nEmployment regulations\nTax law changes"
+  },
+  {
+    "objectID": "government_news.html#key-findings",
+    "href": "government_news.html#key-findings",
+    "title": "Government News",
+    "section": "Key Findings",
+    "text": "Key Findings\n\nInterest rates holding steady in 2025\nNew AI regulation bills introduced in Congress\nTrade agreements impacting job market significantly"
+  },
+  {
+    "objectID": "data_gathering.html",
+    "href": "data_gathering.html",
+    "title": "Data Gathering",
+    "section": "",
+    "text": "In this section, we gather job market news data using the NewsAPI. The goal is to collect recent articles related to hiring, employment, and the job market to analyze trends over time."
+  },
+  {
+    "objectID": "data_gathering.html#overview",
+    "href": "data_gathering.html#overview",
+    "title": "Data Gathering",
+    "section": "",
+    "text": "In this section, we gather job market news data using the NewsAPI. The goal is to collect recent articles related to hiring, employment, and the job market to analyze trends over time."
+  },
+  {
+    "objectID": "data_gathering.html#setup",
+    "href": "data_gathering.html#setup",
+    "title": "Data Gathering",
+    "section": "Setup",
+    "text": "Setup\nWe use the following Python libraries:\n\nrequests — to call the NewsAPI\npandas — to store and organize the data\n\n\nimport requests\nimport pandas as pd"
+  },
+  {
+    "objectID": "data_gathering.html#api-connection",
+    "href": "data_gathering.html#api-connection",
+    "title": "Data Gathering",
+    "section": "API Connection",
+    "text": "API Connection\nWe connect to the NewsAPI using our API key and search for articles related to the job market.\n\nAPI_KEY = \"9d9a703569914e82a61aa211e31ddba1\"\nurl = \"https://newsapi.org/v2/everything\"\n\nparams = {\n    \"q\": \"job market hiring employment\",\n    \"language\": \"en\",\n    \"sortBy\": \"publishedAt\",\n    \"pageSize\": 100,\n    \"apiKey\": API_KEY\n}\n\nresponse = requests.get(url, params=params)\ndata = response.json()\n\nprint(\"Status:\", data[\"status\"])\nprint(\"Total articles found:\", data[\"totalResults\"])\n\nStatus: ok\nTotal articles found: 300"
+  },
+  {
+    "objectID": "data_gathering.html#load-into-dataframe",
+    "href": "data_gathering.html#load-into-dataframe",
+    "title": "Data Gathering",
+    "section": "Load into DataFrame",
+    "text": "Load into DataFrame\nWe load the articles into a pandas DataFrame for easy analysis.\n\narticles = data[\"articles\"]\ndf = pd.DataFrame(articles)\n\nprint(\"Shape:\", df.shape)\ndf.head()\n\nShape: (97, 8)\n\n\n\n\n\n\n\n\n\nsource\nauthor\ntitle\ndescription\nurl\nurlToImage\npublishedAt\ncontent\n\n\n\n\n0\n{'id': None, 'name': 'Raw Story'}\nAnne Kuhnen, Michigan Advance\nRepublicans move to gut child labor protections\nLast week, the Michigan League for Public Poli...\nhttps://www.rawstory.com/gop-labor/\nhttps://www.rawstory.com/media-library/u-s-hou...\n2026-06-10T19:35:36Z\nLast week, the Michigan League for Public Poli...\n\n\n1\n{'id': None, 'name': 'The Daily Caller'}\nIreland Owens\nHalf Of Americans Now Afraid They’ll Lose Thei...\nHalf of Americans are afraid that the ongoing ...\nhttps://dailycaller.com/2026/06/10/americans-a...\nhttps://images.dailycaller.com/image/width=128...\n2026-06-10T14:46:48Z\nHalf of Americans are now afraid that the ​ong...\n\n\n2\n{'id': None, 'name': 'Nakedcapitalism.com'}\nYves Smith\nIncreasing Employment in Pre-Retirement Years ...\nOlder men show less cognitive decline if they ...\nhttps://www.nakedcapitalism.com/2026/06/increa...\nhttps://www.nakedcapitalism.com/wp-content/upl...\n2026-06-10T13:55:34Z\nYves here. It is annoying, but sadly predictab...\n\n\n3\n{'id': None, 'name': 'The Conversation Africa'}\nJustin Visagie, Associate Professor at the Sou...\nSouth Africa’s jobs crisis: what 10 years of t...\nSouth Africa shouldn’t settle for a future in ...\nhttps://theconversation.com/south-africas-jobs...\nhttps://images.theconversation.com/files/73670...\n2026-06-10T13:20:17Z\nIt’s time South Africa faced up to an honest q...\n\n\n4\n{'id': None, 'name': 'The New Republic'}\nAlexander Zaitchik\nDon’t Blame Old People For American Decline\nIt is modernity’s hardest brag: In a single ce...\nhttps://newrepublic.com/article/211554/samuel-...\nhttps://images.newrepublic.com/5645a0de6c1d6ba...\n2026-06-10T10:00:00Z\nThe fact that our officials have been getting ..."
+  },
+  {
+    "objectID": "data_gathering.html#save-to-csv",
+    "href": "data_gathering.html#save-to-csv",
+    "title": "Data Gathering",
+    "section": "Save to CSV",
+    "text": "Save to CSV\nWe save the raw data to a CSV file for use in later steps.\n\ndf.to_csv(\"job_market_news.csv\", index=False)\nprint(\"Data saved to job_market_news.csv\")\n\nData saved to job_market_news.csv"
+  },
+  {
+    "objectID": "data_gathering.html#summary",
+    "href": "data_gathering.html#summary",
+    "title": "Data Gathering",
+    "section": "Summary",
+    "text": "Summary\n\nConnected to NewsAPI successfully\nRetrieved 97 articles across 8 columns\nColumns include: source, author, title, description, url, urlToImage, publishedAt\nData saved to job_market_news.csv for cleaning and analysis in the next step"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "general_news.html",
+    "href": "general_news.html",
+    "title": "General News",
+    "section": "",
+    "text": "This section covers general news topics affecting the job market and economy."
+  },
+  {
+    "objectID": "general_news.html#overview",
+    "href": "general_news.html#overview",
+    "title": "General News",
+    "section": "",
+    "text": "This section covers general news topics affecting the job market and economy."
+  },
+  {
+    "objectID": "general_news.html#key-topics",
+    "href": "general_news.html#key-topics",
+    "title": "General News",
+    "section": "Key Topics",
+    "text": "Key Topics\n\nTechnology trends\nEducation and workforce development\nHealthcare employment\nRemote work trends\nGig economy growth"
+  },
+  {
+    "objectID": "general_news.html#key-findings",
+    "href": "general_news.html#key-findings",
+    "title": "General News",
+    "section": "Key Findings",
+    "text": "Key Findings\n\nRemote work now accounts for 28% of all jobs\nHealthcare sector fastest growing employer\nGig economy expanding across all demographics"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "News Analysis Dashboard for stocks",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "Untitled.html",
+    "href": "Untitled.html",
+    "title": "News Analysis Dashboard",
+    "section": "",
+    "text": "import requests\n\nAPI_KEY = \"9d9a703569914e82a61aa211e31ddba1\"\nurl = \"https://newsapi.org/v2/everything\"\n\nparams = {\n    \"q\": \"job market hiring employment\",\n    \"language\": \"en\",\n    \"sortBy\": \"publishedAt\",\n    \"pageSize\": 100,\n    \"apiKey\": API_KEY\n}\n\nresponse = requests.get(url, params=params)\ndata = response.json()\n\nprint(\"Status:\", data[\"status\"])\nprint(\"Total articles found:\", data[\"totalResults\"])\n\nStatus: ok\nTotal articles found: 292\n\n\n\nimport pandas as pd\n\narticles = data[\"articles\"]\ndf = pd.DataFrame(articles)\n\nprint(df.shape)\ndf.head()\n\n(97, 8)\n\n\n\n\n\n\n\n\n\nsource\nauthor\ntitle\ndescription\nurl\nurlToImage\npublishedAt\ncontent\n\n\n\n\n0\n{'id': None, 'name': 'Crypto Briefing'}\nEditorial Team\nMeta launches $115M America’s Workforce Academ...\nMeta's initiative may set a new standard for w...\nhttps://cryptobriefing.com/meta-workforce-acad...\nhttps://static.cryptobriefing.com/wp-content/u...\n2026-06-09T22:36:59Z\nThe five-week program covers everything from t...\n\n\n1\n{'id': None, 'name': 'New Zealand Herald'}\nBijou Johnson\nBay of Plenty records highest unemployment rat...\nRecruiters report more cautious employers and ...\nhttps://www.nzherald.co.nz/bay-of-plenty-times...\nhttps://www.nzherald.co.nz/resizer/v2/XNKVDLGB...\n2026-06-09T18:00:00Z\nHe said Bay of Plenty unemployment usually inc...\n\n\n2\n{'id': None, 'name': 'PRNewswire'}\nNone\nGlobal Hiring Outlook Holds Steady in Q3 With ...\nEmployers cite economic uncertainty, above AI,...\nhttps://www.prnewswire.com/news-releases/globa...\nhttps://mmx.prnewswire.com/media/MS409711/Manp...\n2026-06-09T13:31:00Z\nYet beneath the headline number, a more comple...\n\n\n3\n{'id': 'the-times-of-india', 'name': 'The Time...\nSreeradha Basu\nFlexi-staffing industry in India sees 8% YoY g...\nThe push for formal employment, strongly suppo...\nhttps://economictimes.indiatimes.com/jobs/hr-p...\nhttps://img.etimg.com/thumb/msid-131611910,wid...\n2026-06-09T12:55:19Z\nBengaluru: Indias flexi-staffing industry has ...\n\n\n4\n{'id': 'fortune', 'name': 'Fortune'}\nSheryl Estrada\nThe man behind Claude Code says you’re compari...\nBoris Cherny says most companies are asking th...\nhttps://fortune.com/2026/06/09/boris-cherny-cl...\nhttps://fortune.com/img-assets/wp-content/uplo...\n2026-06-09T10:37:11Z\nGood morning. Five years after its founding, A...\n\n\n\n\n\n\n\n\ndf.to_csv(\"job_market_news.csv\", index=False)\nprint(\"Saved!\")\n\nSaved!"
+  }
+]
