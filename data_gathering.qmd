@@ -1,0 +1,85 @@
+---
+title: "Data Gathering"
+author:
+  - name: Manan Patel
+    affiliations:
+      - ref: bu
+affiliations:
+  - id: bu
+    name: Boston University
+    city: Boston
+    state: MA
+date: "June 11, 2026"
+date-modified: "June 11, 2026"
+date-format: long
+format:
+  html:
+    default: true
+---
+
+## Overview
+
+In this section, we gather job market news data using the NewsAPI. The goal is to collect recent articles related to hiring, employment, and the job market to analyze trends over time.
+
+## Setup
+
+We use the following Python libraries:
+
+- `requests` — to call the NewsAPI
+- `pandas` — to store and organize the data
+
+```{python}
+import requests
+import pandas as pd
+```
+
+## API Connection
+
+We connect to the NewsAPI using our API key and search for articles related to the job market.
+
+```{python}
+API_KEY = "your_api_key_here"
+url = "https://newsapi.org/v2/everything"
+
+params = {
+    "q": "job market hiring employment",
+    "language": "en",
+    "sortBy": "publishedAt",
+    "pageSize": 100,
+    "apiKey": API_KEY
+}
+
+response = requests.get(url, params=params)
+data = response.json()
+
+print("Status:", data["status"])
+print("Total articles found:", data["totalResults"])
+```
+
+## Load into DataFrame
+
+We load the articles into a pandas DataFrame for easy analysis.
+
+```{python}
+articles = data["articles"]
+df = pd.DataFrame(articles)
+
+print("Shape:", df.shape)
+df.head()
+```
+
+## Save to CSV
+
+We save the raw data to a CSV file for use in later steps.
+
+```{python}
+df.to_csv("job_market_news.csv", index=False)
+print("Data saved to job_market_news.csv")
+```
+
+## Summary
+
+- Connected to NewsAPI successfully
+- Retrieved **97 articles** across 8 columns
+- Columns include: source, author, title, description, url, urlToImage, publishedAt
+- Data saved to `job_market_news.csv` for cleaning and analysis in the next step
