@@ -1,21 +1,28 @@
 project:
   type: website
-  output-dir: site
+  output-dir: _site
 
 website:
-  title: "News Analysis Dashboard for stocks"
+  title: "News Analysis Dashboard"
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - href: about.qmd
-        text: About
+      - href: stock_news.qmd
+        text: Stock News
+      - href: government_news.qmd
+        text: Government News
+      - href: war_news.qmd
+        text: War News
+      - href: general_news.qmd
+        text: General News
       - href: data_gathering.qmd
         text: Data Gathering
+      - href: about.qmd
+        text: About
 
 format:
   html:
     theme: cosmo
     css: styles.css
     toc: true
-
