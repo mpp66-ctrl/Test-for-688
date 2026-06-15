@@ -109,14 +109,14 @@
     "href": "data_gathering.html#api-connection",
     "title": "Data Gathering",
     "section": "API Connection",
-    "text": "API Connection\nWe connect to the NewsAPI using our API key and search for articles related to the job market.\n\nAPI_KEY = \"9d9a703569914e82a61aa211e31ddba1\"\nurl = \"https://newsapi.org/v2/everything\"\n\nparams = {\n    \"q\": \"job market hiring employment\",\n    \"language\": \"en\",\n    \"sortBy\": \"publishedAt\",\n    \"pageSize\": 100,\n    \"apiKey\": API_KEY\n}\n\nresponse = requests.get(url, params=params)\ndata = response.json()\n\nprint(\"Status:\", data[\"status\"])\nprint(\"Total articles found:\", data[\"totalResults\"])\n\nStatus: ok\nTotal articles found: 300"
+    "text": "API Connection\nWe connect to the NewsAPI using our API key and search for articles related to the job market.\n\nAPI_KEY = \"9d9a703569914e82a61aa211e31ddba1\"\nurl = \"https://newsapi.org/v2/everything\"\n\nparams = {\n    \"q\": \"job market hiring employment\",\n    \"language\": \"en\",\n    \"sortBy\": \"publishedAt\",\n    \"pageSize\": 100,\n    \"apiKey\": API_KEY\n}\n\nresponse = requests.get(url, params=params)\ndata = response.json()\n\nprint(\"Status:\", data[\"status\"])\nprint(\"Total articles found:\", data[\"totalResults\"])\n\nStatus: ok\nTotal articles found: 277"
   },
   {
     "objectID": "data_gathering.html#load-into-dataframe",
     "href": "data_gathering.html#load-into-dataframe",
     "title": "Data Gathering",
     "section": "Load into DataFrame",
-    "text": "Load into DataFrame\nWe load the articles into a pandas DataFrame for easy analysis.\n\narticles = data[\"articles\"]\ndf = pd.DataFrame(articles)\n\nprint(\"Shape:\", df.shape)\ndf.head()\n\nShape: (97, 8)\n\n\n\n\n\n\n\n\n\nsource\nauthor\ntitle\ndescription\nurl\nurlToImage\npublishedAt\ncontent\n\n\n\n\n0\n{'id': None, 'name': 'Raw Story'}\nAnne Kuhnen, Michigan Advance\nRepublicans move to gut child labor protections\nLast week, the Michigan League for Public Poli...\nhttps://www.rawstory.com/gop-labor/\nhttps://www.rawstory.com/media-library/u-s-hou...\n2026-06-10T19:35:36Z\nLast week, the Michigan League for Public Poli...\n\n\n1\n{'id': None, 'name': 'The Daily Caller'}\nIreland Owens\nHalf Of Americans Now Afraid They’ll Lose Thei...\nHalf of Americans are afraid that the ongoing ...\nhttps://dailycaller.com/2026/06/10/americans-a...\nhttps://images.dailycaller.com/image/width=128...\n2026-06-10T14:46:48Z\nHalf of Americans are now afraid that the ​ong...\n\n\n2\n{'id': None, 'name': 'Nakedcapitalism.com'}\nYves Smith\nIncreasing Employment in Pre-Retirement Years ...\nOlder men show less cognitive decline if they ...\nhttps://www.nakedcapitalism.com/2026/06/increa...\nhttps://www.nakedcapitalism.com/wp-content/upl...\n2026-06-10T13:55:34Z\nYves here. It is annoying, but sadly predictab...\n\n\n3\n{'id': None, 'name': 'The Conversation Africa'}\nJustin Visagie, Associate Professor at the Sou...\nSouth Africa’s jobs crisis: what 10 years of t...\nSouth Africa shouldn’t settle for a future in ...\nhttps://theconversation.com/south-africas-jobs...\nhttps://images.theconversation.com/files/73670...\n2026-06-10T13:20:17Z\nIt’s time South Africa faced up to an honest q...\n\n\n4\n{'id': None, 'name': 'The New Republic'}\nAlexander Zaitchik\nDon’t Blame Old People For American Decline\nIt is modernity’s hardest brag: In a single ce...\nhttps://newrepublic.com/article/211554/samuel-...\nhttps://images.newrepublic.com/5645a0de6c1d6ba...\n2026-06-10T10:00:00Z\nThe fact that our officials have been getting ..."
+    "text": "Load into DataFrame\nWe load the articles into a pandas DataFrame for easy analysis.\n\narticles = data[\"articles\"]\ndf = pd.DataFrame(articles)\n\nprint(\"Shape:\", df.shape)\ndf.head()\n\nShape: (96, 8)\n\n\n\n\n\n\n\n\n\nsource\nauthor\ntitle\ndescription\nurl\nurlToImage\npublishedAt\ncontent\n\n\n\n\n0\n{'id': 'business-insider', 'name': 'Business I...\nMadison Hoff\nThe economy keeps adding jobs. Many job seeker...\nThe economy has added jobs for three straight ...\nhttps://www.businessinsider.com/layoffs-job-ma...\nhttps://i.insider.com/6a2b0c5224b3540ad29c2253...\n2026-06-14T09:03:01Z\nThe US is adding jobs on net, but it's still a...\n\n\n1\n{'id': 'the-times-of-india', 'name': 'The Time...\nET Online\nLaid off from her dream tech job, woman says i...\nA woman who spent years trying to break into t...\nhttps://economictimes.indiatimes.com/magazines...\nhttps://img.etimg.com/thumb/msid-131692313,wid...\n2026-06-12T18:25:56Z\nIn recent years, layoffs have become an uncomf...\n\n\n2\n{'id': None, 'name': 'Dazed'}\nSinead Campbell\n‘We’ve been left to rot’: Inside Britain’s new...\nAccording to a recent report, one million youn...\nhttps://www.dazeddigital.com/life-culture/arti...\nhttps://images-prod.dazeddigital.com/1080/115-...\n2026-06-12T10:46:00Z\nDave Martin, 25, lives with his parents in his...\n\n\n3\n{'id': 'cbc-news', 'name': 'CBC News'}\nNone\nSummer work in short supply for students amid ...\nYoung people heading out into the workforce in...\nhttps://www.cbc.ca/news/canada/new-brunswick/s...\nhttps://i.cbc.ca/ais/de1333ed-5e73-4cdd-be5f-9...\n2026-06-12T09:00:00Z\nThe Heaven Inn Deavon Café in Fredericton is a...\n\n\n4\n{'id': None, 'name': 'Normaltech.ai'}\nArvind Narayanan, Sayash Kapoor\nWhy AI hasn't replaced software engineers, and...\nCoding agents as normal technology\nhttps://www.normaltech.ai/p/why-ai-hasnt-repla...\nhttps://substackcdn.com/image/fetch/$s_!eBfS!,...\n2026-06-11T07:51:17Z\nThere is great anxiety and uncertainty about A..."
   },
   {
     "objectID": "data_gathering.html#save-to-csv",
@@ -138,6 +138,48 @@
     "title": "About",
     "section": "",
     "text": "About this site"
+  },
+  {
+    "objectID": "analysis.html",
+    "href": "analysis.html",
+    "title": "News Analysis",
+    "section": "",
+    "text": "This section presents a comprehensive analysis of job market news data collected via the NewsAPI. We performed exploratory data analysis, sentiment analysis, and built a machine learning model to classify article sentiment."
+  },
+  {
+    "objectID": "analysis.html#overview",
+    "href": "analysis.html#overview",
+    "title": "News Analysis",
+    "section": "",
+    "text": "This section presents a comprehensive analysis of job market news data collected via the NewsAPI. We performed exploratory data analysis, sentiment analysis, and built a machine learning model to classify article sentiment."
+  },
+  {
+    "objectID": "analysis.html#job-market-news-dashboard",
+    "href": "analysis.html#job-market-news-dashboard",
+    "title": "News Analysis",
+    "section": "Job Market News Dashboard",
+    "text": "Job Market News Dashboard\nThis dashboard shows the top news sources, publishing trends over time, most common words in headlines, and the distribution of articles by hour of day.\n\n\n\nJob Market News Dashboard"
+  },
+  {
+    "objectID": "analysis.html#extended-analysis---day-description-trends",
+    "href": "analysis.html#extended-analysis---day-description-trends",
+    "title": "News Analysis",
+    "section": "Extended Analysis - Day & Description Trends",
+    "text": "Extended Analysis - Day & Description Trends\nThis chart breaks down articles by day of the week and identifies the most frequent words in article descriptions. Friday had the highest volume of job market news published.\n\n\n\nExtended Analysis"
+  },
+  {
+    "objectID": "analysis.html#sentiment-ml-model-dashboard",
+    "href": "analysis.html#sentiment-ml-model-dashboard",
+    "title": "News Analysis",
+    "section": "Sentiment & ML Model Dashboard",
+    "text": "Sentiment & ML Model Dashboard\nUsing TextBlob, we performed sentiment analysis on all article headlines classifying them as Positive, Neutral, or Negative. A Naive Bayes ML model was then trained to predict sentiment from headline text achieving 65% accuracy.\nKey findings: - Most headlines were Neutral in tone - Words like “job”, “growth”, “hiring” dominated positive headlines - RTE and Breitbart News had the highest average sentiment scores\n\n\n\nML Sentiment Dashboard"
+  },
+  {
+    "objectID": "analysis.html#word-cloud-model-performance",
+    "href": "analysis.html#word-cloud-model-performance",
+    "title": "News Analysis",
+    "section": "Word Cloud & Model Performance",
+    "text": "Word Cloud & Model Performance\nThe word cloud highlights the most frequent words in positive job market headlines. “job”, “growth”, “market”, and “hiring” appear most prominently. The model performance chart shows precision and recall scores per sentiment class.\n\n\n\nWord Cloud and Model Performance"
   },
   {
     "objectID": "general_news.html",

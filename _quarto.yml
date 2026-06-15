@@ -18,6 +18,8 @@ website:
         text: General News
       - href: data_gathering.qmd
         text: Data Gathering
+      - href: analysis.qmd
+        text: Analysis
       - href: about.qmd
         text: About
 

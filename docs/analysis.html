@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>War News – News Analysis Dashboard</title>
+<title>News Analysis – News Analysis Dashboard</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -105,7 +105,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Government News</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./war_news.html" aria-current="page"> 
+    <a class="nav-link" href="./war_news.html"> 
 <span class="menu-text">War News</span></a>
   </li>  
   <li class="nav-item">
@@ -117,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Data Gathering</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./analysis.html"> 
+    <a class="nav-link active" href="./analysis.html" aria-current="page"> 
 <span class="menu-text">Analysis</span></a>
   </li>  
   <li class="nav-item">
@@ -141,8 +141,10 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#key-topics" id="toc-key-topics" class="nav-link" data-scroll-target="#key-topics">Key Topics</a></li>
-  <li><a href="#key-findings" id="toc-key-findings" class="nav-link" data-scroll-target="#key-findings">Key Findings</a></li>
+  <li><a href="#job-market-news-dashboard" id="toc-job-market-news-dashboard" class="nav-link" data-scroll-target="#job-market-news-dashboard">Job Market News Dashboard</a></li>
+  <li><a href="#extended-analysis---day-description-trends" id="toc-extended-analysis---day-description-trends" class="nav-link" data-scroll-target="#extended-analysis---day-description-trends">Extended Analysis - Day &amp; Description Trends</a></li>
+  <li><a href="#sentiment-ml-model-dashboard" id="toc-sentiment-ml-model-dashboard" class="nav-link" data-scroll-target="#sentiment-ml-model-dashboard">Sentiment &amp; ML Model Dashboard</a></li>
+  <li><a href="#word-cloud-model-performance" id="toc-word-cloud-model-performance" class="nav-link" data-scroll-target="#word-cloud-model-performance">Word Cloud &amp; Model Performance</a></li>
   </ul>
 </nav>
     </div>
@@ -151,7 +153,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">War News</h1>
+<h1 class="title">News Analysis</h1>
 </div>
 
 
@@ -170,25 +172,52 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>This section covers global conflicts and their impact on markets and employment.</p>
+<p>This section presents a comprehensive analysis of job market news data collected via the NewsAPI. We performed exploratory data analysis, sentiment analysis, and built a machine learning model to classify article sentiment.</p>
+<hr>
 </section>
-<section id="key-topics" class="level2">
-<h2 class="anchored" data-anchor-id="key-topics">Key Topics</h2>
-<ul>
-<li>Global conflict zones</li>
-<li>Defense sector impact</li>
-<li>Supply chain disruptions</li>
-<li>Energy price impacts</li>
-<li>Refugee employment trends</li>
-</ul>
+<section id="job-market-news-dashboard" class="level2">
+<h2 class="anchored" data-anchor-id="job-market-news-dashboard">Job Market News Dashboard</h2>
+<p>This dashboard shows the top news sources, publishing trends over time, most common words in headlines, and the distribution of articles by hour of day.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="dashboard_chart.png" class="img-fluid figure-img"></p>
+<figcaption>Job Market News Dashboard</figcaption>
+</figure>
+</div>
+<hr>
 </section>
-<section id="key-findings" class="level2">
-<h2 class="anchored" data-anchor-id="key-findings">Key Findings</h2>
-<ul>
-<li>Defense sector hiring up 15% due to global tensions</li>
-<li>Supply chain disruptions affecting manufacturing jobs</li>
-<li>Energy prices volatile due to ongoing conflicts</li>
-</ul>
+<section id="extended-analysis---day-description-trends" class="level2">
+<h2 class="anchored" data-anchor-id="extended-analysis---day-description-trends">Extended Analysis - Day &amp; Description Trends</h2>
+<p>This chart breaks down articles by day of the week and identifies the most frequent words in article descriptions. Friday had the highest volume of job market news published.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="extended_analysis_chart.png" class="img-fluid figure-img"></p>
+<figcaption>Extended Analysis</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="sentiment-ml-model-dashboard" class="level2">
+<h2 class="anchored" data-anchor-id="sentiment-ml-model-dashboard">Sentiment &amp; ML Model Dashboard</h2>
+<p>Using TextBlob, we performed sentiment analysis on all article headlines classifying them as Positive, Neutral, or Negative. A Naive Bayes ML model was then trained to predict sentiment from headline text achieving <strong>65% accuracy</strong>.</p>
+<p>Key findings: - Most headlines were <strong>Neutral</strong> in tone - Words like “job”, “growth”, “hiring” dominated positive headlines - RTE and Breitbart News had the highest average sentiment scores</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ml_sentiment_dashboard.png" class="img-fluid figure-img"></p>
+<figcaption>ML Sentiment Dashboard</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="word-cloud-model-performance" class="level2">
+<h2 class="anchored" data-anchor-id="word-cloud-model-performance">Word Cloud &amp; Model Performance</h2>
+<p>The word cloud highlights the most frequent words in positive job market headlines. “job”, “growth”, “market”, and “hiring” appear most prominently. The model performance chart shows precision and recall scores per sentiment class.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ml_performance.png" class="img-fluid figure-img"></p>
+<figcaption>Word Cloud and Model Performance</figcaption>
+</figure>
+</div>
 
 
 </section>
