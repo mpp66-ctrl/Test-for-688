@@ -1,0 +1,97 @@
+title,source_name,title_sentiment,desc_sentiment,title_length,title_word_count,desc_length,desc_word_count,source_reach,publishedAt
+The economy keeps adding jobs. Many job seekers still feel stuck.,Business Insider,0.5,0.07777777777777777,65,11,150,24,2,2026-06-14 09:03:01+00:00
+"Laid off from her dream tech job, woman says it was the best thing that happened to her. 'My hair stopped falling out'",The Times of India,1.0,0.049999999999999996,118,23,260,45,8,2026-06-12 18:25:56+00:00
+‘We’ve been left to rot’: Inside Britain’s new ‘Bedroom Generation’,Dazed,0.06818181818181818,0.05,67,10,170,30,1,2026-06-12 10:46:00+00:00
+Summer work in short supply for students amid weakened job market,CBC News,0.0,0.3090909090909091,65,11,199,34,2,2026-06-12 09:00:00+00:00
+"Why AI hasn't replaced software engineers, and won't",Normaltech.ai,0.0,0.15,52,8,34,5,1,2026-06-11 07:51:17+00:00
+Republicans move to gut child labor protections,Raw Story,0.0,0.02,47,7,260,45,1,2026-06-10 19:35:36+00:00
+Half Of Americans Now Afraid They’ll Lose Their Jobs To AI,The Daily Caller,-0.3833333333333333,-0.45555555555555555,58,11,159,24,1,2026-06-10 14:46:48+00:00
+Increasing Employment in Pre-Retirement Years Slows Cognitive Decline,Nakedcapitalism.com,0.0,0.0,69,8,141,25,1,2026-06-10 13:55:34+00:00
+South Africa’s jobs crisis: what 10 years of tax data tells us,The Conversation Africa,0.0,0.25,62,12,158,29,2,2026-06-10 13:20:17+00:00
+Don’t Blame Old People For American Decline,The New Republic,0.05,0.04851190476190476,43,7,260,41,1,2026-06-10 10:00:00+00:00
+Expert to Black America: You Can ‘Future-Proof’ Your Job As AI Threatens the Market,The Root,-0.16666666666666666,-0.06666666666666665,83,14,260,38,1,2026-06-10 07:22:33+00:00
+Analysis-China Inc deploys 'quiet' layoffs as Beijing promotes AI adoption,Yahoo Entertainment,0.0,0.0035714285714285657,74,10,159,25,3,2026-06-10 06:16:10+00:00
+Meta launches $115M America’s Workforce Academy to train future technicians with guaranteed jobs,Crypto Briefing,0.0,0.09659090909090909,96,13,260,36,8,2026-06-09 22:36:59+00:00
+Inflation drives rate-cut debate at Warsh's first Fed meeting,TheStreet,0.25,0.225,61,9,160,25,2,2026-06-09 21:17:00+00:00
+"Bay of Plenty records highest unemployment rate in New Zealand, national average dips",New Zealand Herald,-0.0068181818181818205,0.5,85,13,78,10,1,2026-06-09 18:00:00+00:00
+Global Hiring Outlook Holds Steady in Q3 With Mid-Size Employers Showing Most Optimism,PRNewswire,0.2222222222222222,0.14444444444444443,86,13,260,37,7,2026-06-09 13:31:00+00:00
+Flexi-staffing industry in India sees 8% YoY growth in new employment in 2025-26: ISF report,The Times of India,0.13636363636363635,0.4666666666666667,92,15,260,36,8,2026-06-09 12:55:19+00:00
+The man behind Claude Code says you’re comparing AI costs to the wrong thing,Fortune,-0.45,0.0,76,14,93,14,2,2026-06-09 10:37:11+00:00
+A Christian response to the crisis facing young people,Christiantoday.com,0.05,0.55,54,9,173,30,1,2026-06-09 09:03:00+00:00
+Indian employers turn cautious over hiring in July-Sep amid global uncertainties: Report,BusinessLine,0.0,0.037500000000000006,88,12,134,18,4,2026-06-09 08:43:39+00:00
+"What sort of workforce are graduates entering, and what do they need to know?",The Irish Times,0.0,0.0,77,14,116,18,3,2026-06-09 05:01:00+00:00
+Half of graduates earn LESS than the median national wage 5 years after leaving university,Dailymail.com,-0.16666666666666666,0.09375,90,15,135,23,2,2026-06-08 21:01:11+00:00
+Conference Board Says Easier Hiring Signals Upcoming Labor Market Weakness,pymnts.com,0.0,0.25,74,10,260,42,1,2026-06-08 18:41:20+00:00
+Trump says Fed rate increase would be wrong after jobs report,Crypto Briefing,-0.5,-0.016666666666666663,61,11,260,38,8,2026-06-08 14:38:46+00:00
+"Her Husband Can't Keep A Job, But They Decided To Buy A House. 'Haven't Even Closed Yet And I Already Know We're Going To Go Into Foreclosure'",Yahoo Entertainment,-0.1,0.1708333333333333,142,27,158,28,3,2026-06-08 13:46:09+00:00
+"Executives are cutting jobs for an AI future that hasn't fully arrived yet, even as productivity gains remain difficult to prove — data neither confirms nor refutes an AI unemployment apocalypse",Tom's Hardware UK,-0.3666666666666667,0.22499999999999998,194,31,186,28,1,2026-06-08 11:20:00+00:00
+"Sensex today | Stock Market Highlights: Sensex settles at 73,524.26, down 719.08 pts (0.97%); Nifty ends at 23,123, down 243.70 pts (1.04%)",BusinessLine,-0.15555555555555559,-0.19,139,22,187,29,4,2026-06-08 10:28:12+00:00
+UK gov's answer to AI job fears: An AI bot to polish your CV,Theregister.com,0.0,0.5,60,14,75,11,3,2026-06-08 10:02:00+00:00
+Department of Work and Pensions' answer to AI job fears is a bot to polish your CV,Theregister.com,0.0,0.0,82,17,134,18,3,2026-06-08 10:02:00+00:00
+UK's answer to AI job fears is a bot to polish your CV,Theregister.com,0.0,0.0,54,13,134,18,3,2026-06-08 10:02:00+00:00
+Apna eyes ₹150 crore revenue from AI-led push for India’s 300 million blue-collar workers,BusinessLine,0.0,0.0,89,14,117,15,4,2026-06-08 06:12:09+00:00
+The 'Living Wage' Attack on Jobs and Prosperity,Reason,0.0,0.25,47,8,131,20,1,2026-06-07 23:34:56+00:00
+"AI and the reinvention of work: Why some sectors are hiring more, not less",Digital Journal,0.2916666666666667,0.20666666666666664,74,14,234,42,2,2026-06-07 19:27:18+00:00
+"US labor market adds 172,000 jobs in May, but job seekers face longer unemployment",Crypto Briefing,0.0,0.225,82,14,260,37,8,2026-06-07 16:43:54+00:00
+"As firms go AI-native, scrutiny grows over AI-linked job cuts",BusinessLine,0.0,0.0,61,10,181,27,4,2026-06-07 14:50:21+00:00
+Algorithmic Monocultures in Hiring,Github.io,0.0,0.0,34,4,0,0,1,2026-06-07 05:47:02+00:00
+Is Cybersecurity Hard? Honest Career Guide for 2026,Smashingapps.com,0.15416666666666665,0.17708333333333334,51,8,159,27,1,2026-06-06 21:54:10+00:00
+New U.S. college grads now have higher unemployment than the average worker,Randalolson.com,0.07878787878787878,-0.06666666666666667,75,12,151,27,1,2026-06-06 20:35:40+00:00
+"Julian Jessop: Weak productivity growth since the financial crisis, the AI revolution will drive economic expansion, and excessive regulation hinders corporate performance | The Peter McCormack Show",Crypto Briefing,-0.08499999999999999,0.10499999999999998,198,27,260,36,8,2026-06-06 19:16:12+00:00
+"US labor market adds 172,000 jobs in May, nearly doubling expectations",Crypto Briefing,0.1,0.15,70,11,252,40,8,2026-06-06 18:34:31+00:00
+"US job market adds 172,000 jobs in May as hiring rebounds, rattling crypto markets",Crypto Briefing,0.0,0.125,82,14,259,39,8,2026-06-06 17:48:57+00:00
+T-Mobile’s hiring efforts take an unexpected turn after layoffs,TheStreet,0.1,0.225,63,9,155,24,2,2026-06-06 17:33:00+00:00
+"Canada adds 87,800 jobs in May as unemployment rate drops to 6.6%",Crypto Briefing,0.0,0.175,65,12,251,40,8,2026-06-06 16:38:52+00:00
+"Despite a competitive market, finding a summer job is highly beneficial for teens",NPR,0.16,0.0037037037037037277,81,13,96,16,2,2026-06-06 11:48:31+00:00
+Want to switch jobs but can't let go? You might be a job hugger,CBC News,0.0,0.052597402597402594,63,14,260,44,2,2026-06-06 08:00:00+00:00
+Moving to Canada: Here is what Irish people need to know,The Irish Times,0.0,0.0,56,11,118,19,3,2026-06-06 05:00:00+00:00
+"Breitbart Business Digest: Trump’s Economy Is Cooking—188,000 Jobs, Factories Roaring, Pay Checks Singing",Breitbart News,0.0,0.15,105,13,260,44,2,2026-06-06 00:09:17+00:00
+The job market is much stronger than economists expected. Why?,CBS News,0.05,0.06026936026936025,62,10,112,20,1,2026-06-05 20:35:17+00:00
+"Strong US job growth beats expectations in May, firming recent gains",Digital Journal,0.21666666666666665,-0.04166666666666667,68,11,260,42,2,2026-06-05 18:49:49+00:00
+"Tech hiring lifts national job growth, demonstrates rising demand for tech talent, CompTIA finds",Associated Press,0.0,0.0965909090909091,96,14,260,39,1,2026-06-05 16:46:32+00:00
+Wellington employment service Im In on finding the right person for the right job,RNZ,0.2857142857142857,-0.030555555555555558,81,14,175,27,1,2026-06-05 16:24:30+00:00
+"May jobs report crushes expectations with 172,000 new positions, complicating Fed rate cut hopes",Crypto Briefing,0.13636363636363635,0.12159090909090908,96,14,260,36,8,2026-06-05 16:02:23+00:00
+Job Market Notches Third Straight Month of Solid Growth,Daily Signal,0.06666666666666667,0.16805555555555554,55,9,260,42,1,2026-06-05 15:17:21+00:00
+Good Careers at Bad Companies,Sharedphysics.com,5.551115123125783e-17,0.6,29,5,260,44,1,2026-06-05 15:11:52+00:00
+Strong US job growth ahead of World Cup,RTE,0.4333333333333333,-0.25,39,8,149,25,1,2026-06-05 14:50:04+00:00
+"Tech hiring lifts national job growth, demonstrates rising demand for tech talent, CompTIA finds",PRNewswire,0.0,0.0965909090909091,96,14,260,39,7,2026-06-05 14:44:00+00:00
+"The U.S. adds 172,000 jobs as the labor market picks up steam",NPR,0.0,-0.08333333333333334,61,12,187,34,2,2026-06-05 14:20:37+00:00
+Jobs in Hospitality and Healthcare Propelled Hiring in May,The Wall Street Journal,0.0,0.1515151515151515,58,9,90,14,1,2026-06-05 14:11:00+00:00
+"Jobs report for May pushes US Fed interest rate expectations, yields higher. What does this mean?",The Times of India,-0.03125,0.0,97,16,155,21,8,2026-06-05 13:56:44+00:00
+"US Hiring Surged in May, Boosting Bets on Fed Rate Hike",Financial Post,0.0,0.16666666666666666,55,11,205,36,3,2026-06-05 13:49:50+00:00
+"US economy blew past expectations to add 172,000 jobs in May",The Irish Times,-0.25,0.0,60,11,56,11,3,2026-06-05 13:44:29+00:00
+"U.S. labor market powers ahead: 172,000 jobs added in May, far surpassing expectations in strong show of American economic resilience",Macdailynews.com,0.18333333333333335,0.5083333333333333,133,20,260,42,1,2026-06-05 13:06:05+00:00
+Stock markets surge higher as US economy delivers a MASSIVE jobs win in May - and your 401(k) will love it,Dailymail.com,0.3875,0.21666666666666665,106,21,143,24,2,2026-06-05 12:50:12+00:00
+"Canada Employment Up 87,800, Jobless Rate Falls to 6.6%",Financial Post,0.0,0.2148148148148148,55,9,153,28,3,2026-06-05 12:48:30+00:00
+U.S. Job Market Smashed Expectations In May—But Fewer Americans Were Working,Forbes,0.0,0.0,76,11,78,13,2,2026-06-05 12:43:28+00:00
+Competitive summer job market for teens,Mankato Free Press,0.0,0.0,39,6,89,15,1,2026-06-05 11:07:49+00:00
+May jobs report expected to show growth in an economy squeezed by inflation,NBC News,-0.1,0.033333333333333326,75,13,134,22,1,2026-06-05 09:00:00+00:00
+"US job growth likely slowed in May, labor market seen stable despite oil shock",The Times of India,0.0,0.07023809523809522,78,14,260,38,8,2026-06-05 04:18:00+00:00
+"US jobless aid filings, a proxy for layoffs, hit highest level since Iran war began in February",Midland Reporter-Telegram,0.0,0.06666666666666667,95,17,203,33,1,2026-06-05 01:15:30+00:00
+The May jobs report will be released Friday. Here's what to expect,CNBC,0.0,0.0,66,12,92,15,2,2026-06-04 19:27:13+00:00
+Survey finds CEOs cutting junior roles to AI: How it impacts IT,Techtarget.com,-0.6,0.0,63,12,160,24,1,2026-06-04 15:19:00+00:00
+"May jobs report: US labor market smashes expectations with payroll growth of 172,000",Yahoo Entertainment,0.0,-0.25,84,13,152,22,3,2026-06-04 14:55:25+00:00
+Tenstreet Analysis Reveals Drivers Prioritize Stability and Connection Amid AI Recruiting Shift,GlobeNewswire,0.0,-0.4,95,12,260,33,1,2026-06-04 14:00:00+00:00
+Revelio Public Labor Statistics Reports 123.7k US Jobs Gained in May,PRNewswire,0.0,0.21212121212121213,68,11,260,42,7,2026-06-04 13:46:00+00:00
+"Manpower Ranked No. 1 on Forbes' 2026 List of America's Best Temporary Staffing Firms, Named Among Top Five Professional Recruiting Firms",PRNewswire,0.5333333333333333,-0.05,137,21,260,39,7,2026-06-04 13:31:00+00:00
+US weekly jobless claims increase more than expected; labor market remains stable,The Times of India,0.2,-0.19999999999999998,81,12,184,26,8,2026-06-04 13:23:52+00:00
+"Job cuts in U.S: Lay offs total over 97,000 in May, highest in six years. Check what is disrupting jobs market",The Times of India,0.0,0.0,110,21,109,20,8,2026-06-04 12:46:18+00:00
+Geotab Backs Early-Career Talent with 300 Interns as AI Hits Graduate Hiring,PRNewswire,0.0,0.0,76,12,260,39,7,2026-06-04 12:00:00+00:00
+Buried in SpaceX’s IPO: a Tesla merger clue and a $3.75 billion insider windfall for friends and family,Fortune,0.0,0.0,103,18,69,12,2,2026-06-04 10:12:40+00:00
+India's viral 'Cockroach' party has millions of followers. What investors need to know,CNBC,0.0,0.016666666666666666,86,13,153,26,2,2026-06-04 09:58:51+00:00
+Saylor Sells Bitcoin: Is His Cult Crumbling?,Realinvestmentadvice.com,0.0,-0.09166666666666667,44,7,260,39,1,2026-06-04 09:20:00+00:00
+CEO to staff: You're not getting a raise. We're spending on AI instead.,Business Insider,0.0,-0.2,71,13,144,25,2,2026-06-04 09:00:01+00:00
+First Mold Expands University Partnerships to Build Next-Generation Manufacturing Talent Pipeline,PRNewswire,0.25,0.375,97,11,260,38,7,2026-06-04 06:29:00+00:00
+"ThynkTech Pune India closure: Noida IT Firm shutdown leaves 500+ jobless after Rs 15,000 deposit over issuing laptops, 2 months' salary unpaid",The Times of India,0.0,-0.15000000000000002,142,22,260,43,8,2026-06-04 04:43:47+00:00
+"U.S. Hiring Beats Expectations as Employers Add 122,000 Jobs. Is the Economy Stronger Than Wall Street Thinks?",Freerepublic.com,0.0,0.0,110,17,260,38,2,2026-06-04 04:05:33+00:00
+Lead Machine Learning Operations Engineer,Nlppeople.com,0.0,0.1,41,5,260,48,1,2026-06-04 00:00:00+00:00
+Breitbart Business Digest: Is the AI Boom Becoming Too Much of a Good Thing?,Breitbart News,0.575,0.3833333333333333,76,14,260,45,2,2026-06-03 22:23:10+00:00
+"ADP National Employment Report: Private Sector Employment Increased by 122,000 Jobs in May; Annual Pay was Up 4.4%",Freerepublic.com,0.0,0.0,114,18,260,41,2,2026-06-03 18:34:33+00:00
+Someone Finally Wants to Hire Philosophers,The Atlantic,0.2,0.0,42,6,65,12,1,2026-06-03 18:31:00+00:00
+Harvard MBA but no job: How this Indian techie eventually landed at Google with visa clock ticking down,The Times of India,-0.15555555555555559,-0.04999999999999999,103,18,260,38,8,2026-06-03 17:57:29+00:00
+The graduate job market is grim right now – but the data says university is still worth it,The Conversation Africa,-0.1380952380952381,0.21428571428571427,90,18,44,8,2,2026-06-03 14:56:22+00:00
+"AI slows hiring in some roles, but demand grows for human skills",ABC News (AU),0.0,0.022727272727272724,64,12,194,30,1,2026-06-03 14:05:09+00:00
+"US Companies Add 122,000 Jobs, Most Since January 2025",Financial Post,0.5,0.5,54,9,163,28,3,2026-06-03 13:16:59+00:00
+Small Businesses Boosted Private Sector Employment Last Month—These Industries Added The Most Jobs,Forbes,0.0625,0.0,98,13,77,13,2,2026-06-03 12:26:41+00:00
+"ADP National Employment Report: Private Sector Employment Increased by 122,000 Jobs in May; Annual Pay was Up 4.4%",PRNewswire,0.0,0.0,114,18,260,41,7,2026-06-03 12:15:00+00:00
+Foreign Workers Become Vital to Okinawa's Economy,Newsonjapan.com,-0.012499999999999997,0.09375,49,7,260,41,1,2026-06-03 04:20:58+00:00

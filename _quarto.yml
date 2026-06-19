@@ -20,6 +20,8 @@ website:
         text: Data Gathering
       - href: analysis.qmd
         text: Analysis
+      - href: correlation_insights.qmd
+        text: Correlation Insights
       - href: about.qmd
         text: About
 
