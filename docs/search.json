@@ -56,130 +56,39 @@
     "text": "Key Findings\n\nTech stocks continue to outperform broader market\nAI related companies seeing highest growth\nEnergy sector showing stability amid global tensions"
   },
   {
-    "objectID": "government_news.html",
-    "href": "government_news.html",
-    "title": "Government News",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "News Analysis Dashboard for stocks",
     "section": "",
-    "text": "This section covers government policies, regulations, and political developments."
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
   },
   {
-    "objectID": "government_news.html#overview",
-    "href": "government_news.html#overview",
-    "title": "Government News",
+    "objectID": "general_news.html",
+    "href": "general_news.html",
+    "title": "General News",
     "section": "",
-    "text": "This section covers government policies, regulations, and political developments."
+    "text": "This section covers general news topics affecting the job market and economy."
   },
   {
-    "objectID": "government_news.html#key-topics",
-    "href": "government_news.html#key-topics",
-    "title": "Government News",
+    "objectID": "general_news.html#overview",
+    "href": "general_news.html#overview",
+    "title": "General News",
+    "section": "",
+    "text": "This section covers general news topics affecting the job market and economy."
+  },
+  {
+    "objectID": "general_news.html#key-topics",
+    "href": "general_news.html#key-topics",
+    "title": "General News",
     "section": "Key Topics",
-    "text": "Key Topics\n\nFederal Reserve decisions\nGovernment spending bills\nTrade policies\nEmployment regulations\nTax law changes"
+    "text": "Key Topics\n\nTechnology trends\nEducation and workforce development\nHealthcare employment\nRemote work trends\nGig economy growth"
   },
   {
-    "objectID": "government_news.html#key-findings",
-    "href": "government_news.html#key-findings",
-    "title": "Government News",
+    "objectID": "general_news.html#key-findings",
+    "href": "general_news.html#key-findings",
+    "title": "General News",
     "section": "Key Findings",
-    "text": "Key Findings\n\nInterest rates holding steady in 2025\nNew AI regulation bills introduced in Congress\nTrade agreements impacting job market significantly"
-  },
-  {
-    "objectID": "data_gathering.html",
-    "href": "data_gathering.html",
-    "title": "Data Gathering",
-    "section": "",
-    "text": "In this section, we gather job market news data using the NewsAPI. The goal is to collect recent articles related to hiring, employment, and the job market to analyze trends over time."
-  },
-  {
-    "objectID": "data_gathering.html#overview",
-    "href": "data_gathering.html#overview",
-    "title": "Data Gathering",
-    "section": "",
-    "text": "In this section, we gather job market news data using the NewsAPI. The goal is to collect recent articles related to hiring, employment, and the job market to analyze trends over time."
-  },
-  {
-    "objectID": "data_gathering.html#setup",
-    "href": "data_gathering.html#setup",
-    "title": "Data Gathering",
-    "section": "Setup",
-    "text": "Setup\nWe use the following Python libraries:\n\nrequests — to call the NewsAPI\npandas — to store and organize the data\n\n\nimport requests\nimport pandas as pd"
-  },
-  {
-    "objectID": "data_gathering.html#api-connection",
-    "href": "data_gathering.html#api-connection",
-    "title": "Data Gathering",
-    "section": "API Connection",
-    "text": "API Connection\nWe connect to the NewsAPI using our API key and search for articles related to the job market.\n\nAPI_KEY = \"9d9a703569914e82a61aa211e31ddba1\"\nurl = \"https://newsapi.org/v2/everything\"\n\nparams = {\n    \"q\": \"job market hiring employment\",\n    \"language\": \"en\",\n    \"sortBy\": \"publishedAt\",\n    \"pageSize\": 100,\n    \"apiKey\": API_KEY\n}\n\nresponse = requests.get(url, params=params)\ndata = response.json()\n\nprint(\"Status:\", data[\"status\"])\nprint(\"Total articles found:\", data[\"totalResults\"])\n\nStatus: ok\nTotal articles found: 274"
-  },
-  {
-    "objectID": "data_gathering.html#load-into-dataframe",
-    "href": "data_gathering.html#load-into-dataframe",
-    "title": "Data Gathering",
-    "section": "Load into DataFrame",
-    "text": "Load into DataFrame\nWe load the articles into a pandas DataFrame for easy analysis.\n\narticles = data[\"articles\"]\ndf = pd.DataFrame(articles)\n\nprint(\"Shape:\", df.shape)\ndf.head()\n\nShape: (95, 8)\n\n\n\n\n\n\n\n\n\nsource\nauthor\ntitle\ndescription\nurl\nurlToImage\npublishedAt\ncontent\n\n\n\n\n0\n{'id': None, 'name': 'Yahoo Entertainment'}\nCamila Grigera Naón\nExclusive: Arizona senator warns ‘ghost jobs’ ...\nSen. Ruben Gallego sent letters outlining his ...\nhttps://www.yahoo.com/news/politics/articles/e...\nhttps://s.yimg.com/lo/mysterio/api/b68b7510e43...\n2026-06-18T14:00:00Z\nSen. Ruben Gallego (D-Ariz.) pressed the Trump...\n\n\n1\n{'id': 'fortune', 'name': 'Fortune'}\nCamila Grigera Naón\nExclusive: Arizona senator warns ‘ghost jobs’ ...\nSen. Ruben Gallego sent letters outlining his ...\nhttps://fortune.com/2026/06/18/exclusive-arizo...\nhttps://fortune.com/img-assets/wp-content/uplo...\n2026-06-18T14:00:00Z\nSen. Ruben Gallego (D-Ariz.) pressed the Trump...\n\n\n2\n{'id': 'the-times-of-india', 'name': 'The Time...\nReuters\nUS weekly jobless claims fall amid low layoffs\nInitial claims for state unemployment benefits...\nhttps://economictimes.indiatimes.com/news/inte...\nhttps://img.etimg.com/thumb/msid-131831533,wid...\n2026-06-18T13:03:42Z\nWASHINGTON: The number of Americans filing cla...\n\n\n3\n{'id': None, 'name': 'Techtarget.com'}\nDavid Essex\nHR must have a say in AI policy to forestall l...\nIn this Q&A, employment attorney Deepa Menon e...\nhttps://www.techtarget.com/searchhrsoftware/ne...\nhttps://www.techtarget.com/rms/onlineimages/le...\n2026-06-18T12:51:00Z\nORLANDO, Fla. -- The legal risks of using AI i...\n\n\n4\n{'id': 'financial-post', 'name': 'Financial Po...\nPamela Heaven\nPosthaste: Canada's in a 'demographic recessio...\nCanada's population has now fallen for a third...\nhttps://financialpost.com/news/what-canada-dem...\nhttps://smartcdn.gprod.postmedia.digital/finan...\n2026-06-18T12:01:39Z\nTHIS CONTENT IS RESERVED FOR SUBSCRIBERS ONLY\\..."
-  },
-  {
-    "objectID": "data_gathering.html#save-to-csv",
-    "href": "data_gathering.html#save-to-csv",
-    "title": "Data Gathering",
-    "section": "Save to CSV",
-    "text": "Save to CSV\nWe save the raw data to a CSV file for use in later steps.\n\ndf.to_csv(\"job_market_news.csv\", index=False)\nprint(\"Data saved to job_market_news.csv\")\n\nData saved to job_market_news.csv"
-  },
-  {
-    "objectID": "data_gathering.html#summary",
-    "href": "data_gathering.html#summary",
-    "title": "Data Gathering",
-    "section": "Summary",
-    "text": "Summary\n\nConnected to NewsAPI successfully\nRetrieved 97 articles across 8 columns\nColumns include: source, author, title, description, url, urlToImage, publishedAt\nData saved to job_market_news.csv for cleaning and analysis in the next step"
-  },
-  {
-    "objectID": "analysis.html",
-    "href": "analysis.html",
-    "title": "News Analysis",
-    "section": "",
-    "text": "This section presents a comprehensive analysis of job market news data collected via the NewsAPI. We performed exploratory data analysis, sentiment analysis, and built a machine learning model to classify article sentiment."
-  },
-  {
-    "objectID": "analysis.html#overview",
-    "href": "analysis.html#overview",
-    "title": "News Analysis",
-    "section": "",
-    "text": "This section presents a comprehensive analysis of job market news data collected via the NewsAPI. We performed exploratory data analysis, sentiment analysis, and built a machine learning model to classify article sentiment."
-  },
-  {
-    "objectID": "analysis.html#job-market-news-dashboard",
-    "href": "analysis.html#job-market-news-dashboard",
-    "title": "News Analysis",
-    "section": "Job Market News Dashboard",
-    "text": "Job Market News Dashboard\nThis dashboard shows the top news sources, publishing trends over time, most common words in headlines, and the distribution of articles by hour of day.\n\n\n\nJob Market News Dashboard"
-  },
-  {
-    "objectID": "analysis.html#extended-analysis---day-description-trends",
-    "href": "analysis.html#extended-analysis---day-description-trends",
-    "title": "News Analysis",
-    "section": "Extended Analysis - Day & Description Trends",
-    "text": "Extended Analysis - Day & Description Trends\nThis chart breaks down articles by day of the week and identifies the most frequent words in article descriptions. Friday had the highest volume of job market news published.\n\n\n\nExtended Analysis"
-  },
-  {
-    "objectID": "analysis.html#sentiment-ml-model-dashboard",
-    "href": "analysis.html#sentiment-ml-model-dashboard",
-    "title": "News Analysis",
-    "section": "Sentiment & ML Model Dashboard",
-    "text": "Sentiment & ML Model Dashboard\nUsing TextBlob, we performed sentiment analysis on all article headlines classifying them as Positive, Neutral, or Negative. A Naive Bayes ML model was then trained to predict sentiment from headline text achieving 65% accuracy.\nKey findings: - Most headlines were Neutral in tone - Words like “job”, “growth”, “hiring” dominated positive headlines - RTE and Breitbart News had the highest average sentiment scores\n\n\n\nML Sentiment Dashboard"
-  },
-  {
-    "objectID": "analysis.html#word-cloud-model-performance",
-    "href": "analysis.html#word-cloud-model-performance",
-    "title": "News Analysis",
-    "section": "Word Cloud & Model Performance",
-    "text": "Word Cloud & Model Performance\nThe word cloud highlights the most frequent words in positive job market headlines. “job”, “growth”, “market”, and “hiring” appear most prominently. The model performance chart shows precision and recall scores per sentiment class.\n\n\n\nWord Cloud and Model Performance"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
+    "text": "Key Findings\n\nRemote work now accounts for 28% of all jobs\nHealthcare sector fastest growing employer\nGig economy expanding across all demographics"
   },
   {
     "objectID": "correlation_insights.html",
@@ -224,39 +133,179 @@
     "text": "Data\nTwo CSV files were generated from this analysis:\n\ncorrelation_analysis_data.csv — full article dataset with computed features\ncorrelation_summary.csv — summary of all correlation coefficients and p-values"
   },
   {
-    "objectID": "general_news.html",
-    "href": "general_news.html",
-    "title": "General News",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "This section covers general news topics affecting the job market and economy."
+    "text": "About this site"
   },
   {
-    "objectID": "general_news.html#overview",
-    "href": "general_news.html#overview",
-    "title": "General News",
+    "objectID": "analysis.html",
+    "href": "analysis.html",
+    "title": "News Analysis",
     "section": "",
-    "text": "This section covers general news topics affecting the job market and economy."
+    "text": "This section presents a comprehensive analysis of job market news data collected via the NewsAPI. We performed exploratory data analysis, sentiment analysis, and built a machine learning model to classify article sentiment."
   },
   {
-    "objectID": "general_news.html#key-topics",
-    "href": "general_news.html#key-topics",
-    "title": "General News",
+    "objectID": "analysis.html#overview",
+    "href": "analysis.html#overview",
+    "title": "News Analysis",
+    "section": "",
+    "text": "This section presents a comprehensive analysis of job market news data collected via the NewsAPI. We performed exploratory data analysis, sentiment analysis, and built a machine learning model to classify article sentiment."
+  },
+  {
+    "objectID": "analysis.html#job-market-news-dashboard",
+    "href": "analysis.html#job-market-news-dashboard",
+    "title": "News Analysis",
+    "section": "Job Market News Dashboard",
+    "text": "Job Market News Dashboard\nThis dashboard shows the top news sources, publishing trends over time, most common words in headlines, and the distribution of articles by hour of day.\n\n\n\nJob Market News Dashboard"
+  },
+  {
+    "objectID": "analysis.html#extended-analysis---day-description-trends",
+    "href": "analysis.html#extended-analysis---day-description-trends",
+    "title": "News Analysis",
+    "section": "Extended Analysis - Day & Description Trends",
+    "text": "Extended Analysis - Day & Description Trends\nThis chart breaks down articles by day of the week and identifies the most frequent words in article descriptions. Friday had the highest volume of job market news published.\n\n\n\nExtended Analysis"
+  },
+  {
+    "objectID": "analysis.html#sentiment-ml-model-dashboard",
+    "href": "analysis.html#sentiment-ml-model-dashboard",
+    "title": "News Analysis",
+    "section": "Sentiment & ML Model Dashboard",
+    "text": "Sentiment & ML Model Dashboard\nUsing TextBlob, we performed sentiment analysis on all article headlines classifying them as Positive, Neutral, or Negative. A Naive Bayes ML model was then trained to predict sentiment from headline text achieving 65% accuracy.\nKey findings: - Most headlines were Neutral in tone - Words like “job”, “growth”, “hiring” dominated positive headlines - RTE and Breitbart News had the highest average sentiment scores\n\n\n\nML Sentiment Dashboard"
+  },
+  {
+    "objectID": "analysis.html#word-cloud-model-performance",
+    "href": "analysis.html#word-cloud-model-performance",
+    "title": "News Analysis",
+    "section": "Word Cloud & Model Performance",
+    "text": "Word Cloud & Model Performance\nThe word cloud highlights the most frequent words in positive job market headlines. “job”, “growth”, “market”, and “hiring” appear most prominently. The model performance chart shows precision and recall scores per sentiment class.\n\n\n\nWord Cloud and Model Performance"
+  },
+  {
+    "objectID": "data_gathering.html",
+    "href": "data_gathering.html",
+    "title": "Data Gathering",
+    "section": "",
+    "text": "In this section, we gather job market news data using the NewsAPI. The goal is to collect recent articles related to hiring, employment, and the job market to analyze trends over time."
+  },
+  {
+    "objectID": "data_gathering.html#overview",
+    "href": "data_gathering.html#overview",
+    "title": "Data Gathering",
+    "section": "",
+    "text": "In this section, we gather job market news data using the NewsAPI. The goal is to collect recent articles related to hiring, employment, and the job market to analyze trends over time."
+  },
+  {
+    "objectID": "data_gathering.html#setup",
+    "href": "data_gathering.html#setup",
+    "title": "Data Gathering",
+    "section": "Setup",
+    "text": "Setup\nWe use the following Python libraries:\n\nrequests — to call the NewsAPI\npandas — to store and organize the data\n\n\nimport requests\nimport pandas as pd"
+  },
+  {
+    "objectID": "data_gathering.html#api-connection",
+    "href": "data_gathering.html#api-connection",
+    "title": "Data Gathering",
+    "section": "API Connection",
+    "text": "API Connection\nWe connect to the NewsAPI using our API key and search for articles related to the job market.\n\nAPI_KEY = \"9d9a703569914e82a61aa211e31ddba1\"\nurl = \"https://newsapi.org/v2/everything\"\n\nparams = {\n    \"q\": \"job market hiring employment\",\n    \"language\": \"en\",\n    \"sortBy\": \"publishedAt\",\n    \"pageSize\": 100,\n    \"apiKey\": API_KEY\n}\n\nresponse = requests.get(url, params=params)\ndata = response.json()\n\nprint(\"Status:\", data[\"status\"])\nprint(\"Total articles found:\", data[\"totalResults\"])\n\nStatus: ok\nTotal articles found: 254"
+  },
+  {
+    "objectID": "data_gathering.html#load-into-dataframe",
+    "href": "data_gathering.html#load-into-dataframe",
+    "title": "Data Gathering",
+    "section": "Load into DataFrame",
+    "text": "Load into DataFrame\nWe load the articles into a pandas DataFrame for easy analysis.\n\narticles = data[\"articles\"]\ndf = pd.DataFrame(articles)\n\nprint(\"Shape:\", df.shape)\ndf.head()\n\nShape: (97, 8)\n\n\n\n\n\n\n\n\n\nsource\nauthor\ntitle\ndescription\nurl\nurlToImage\npublishedAt\ncontent\n\n\n\n\n0\n{'id': None, 'name': 'Arcamax.com'}\nArcamax Publishing\nOlder tech workers are tapping out early. Here...\nSteve Otteson wasn’t planning to retire. The 5...\nhttps://www.arcamax.com/business/businessnews/...\nhttps://resources.arcamax.com/newspics/387/387...\n2026-06-26T20:33:33Z\nSteve Otteson wasnt planning to retire.\\r\\nThe...\n\n\n1\n{'id': None, 'name': 'New York Post'}\nKyra Breslin\nPopular supermarket guarantees a job interview...\nIn an era of growing economic uncertainty, one...\nhttps://nypost.com/2026/06/26/lifestyle/lidl-o...\nhttps://nypost.com/wp-content/uploads/sites/2/...\n2026-06-26T18:55:19Z\nIn an era of growing economic uncertainty, one...\n\n\n2\n{'id': None, 'name': 'Freerepublic.com'}\nDallas Express\n$7.25 To $25? Senate Democrat’s New Federal Mi...\nSen. Chris Murphy (D-Connecticut) introduced l...\nhttps://freerepublic.com/focus/f-news/4385561/...\nNone\n2026-06-26T17:16:24Z\nSkip to comments.\\r\\n$7.25 To $25? Senate Demo...\n\n\n3\n{'id': 'the-next-web', 'name': 'The Next Web'}\nAlina Maria Stan\nCalifornia built a tool to catch AI killing jobs\nCalifornia has built the first state tool to w...\nhttps://thenextweb.com/news/california-ai-job-...\nhttps://media.thenextweb.com/2026/06/Governor-...\n2026-06-26T14:29:58Z\nCalifornia has built the first state tool to w...\n\n\n4\n{'id': None, 'name': 'The New Republic'}\nRight Now With Perry Bacon\nTranscript: How Colleges Can Defend Themselves...\nThis is a lightly edited transcript of the Jun...\nhttps://newrepublic.com/article/212382/transcr...\nhttps://images.newrepublic.com/d56895b95df46c0...\n2026-06-26T11:49:36Z\nYou have plenty of right-wing scholars, partic..."
+  },
+  {
+    "objectID": "data_gathering.html#save-to-csv",
+    "href": "data_gathering.html#save-to-csv",
+    "title": "Data Gathering",
+    "section": "Save to CSV",
+    "text": "Save to CSV\nWe save the raw data to a CSV file for use in later steps.\n\ndf.to_csv(\"job_market_news.csv\", index=False)\nprint(\"Data saved to job_market_news.csv\")\n\nData saved to job_market_news.csv"
+  },
+  {
+    "objectID": "data_gathering.html#summary",
+    "href": "data_gathering.html#summary",
+    "title": "Data Gathering",
+    "section": "Summary",
+    "text": "Summary\n\nConnected to NewsAPI successfully\nRetrieved 97 articles across 8 columns\nColumns include: source, author, title, description, url, urlToImage, publishedAt\nData saved to job_market_news.csv for cleaning and analysis in the next step"
+  },
+  {
+    "objectID": "government_news.html",
+    "href": "government_news.html",
+    "title": "Government News",
+    "section": "",
+    "text": "This section covers government policies, regulations, and political developments."
+  },
+  {
+    "objectID": "government_news.html#overview",
+    "href": "government_news.html#overview",
+    "title": "Government News",
+    "section": "",
+    "text": "This section covers government policies, regulations, and political developments."
+  },
+  {
+    "objectID": "government_news.html#key-topics",
+    "href": "government_news.html#key-topics",
+    "title": "Government News",
     "section": "Key Topics",
-    "text": "Key Topics\n\nTechnology trends\nEducation and workforce development\nHealthcare employment\nRemote work trends\nGig economy growth"
+    "text": "Key Topics\n\nFederal Reserve decisions\nGovernment spending bills\nTrade policies\nEmployment regulations\nTax law changes"
   },
   {
-    "objectID": "general_news.html#key-findings",
-    "href": "general_news.html#key-findings",
-    "title": "General News",
+    "objectID": "government_news.html#key-findings",
+    "href": "government_news.html#key-findings",
+    "title": "Government News",
     "section": "Key Findings",
-    "text": "Key Findings\n\nRemote work now accounts for 28% of all jobs\nHealthcare sector fastest growing employer\nGig economy expanding across all demographics"
+    "text": "Key Findings\n\nInterest rates holding steady in 2025\nNew AI regulation bills introduced in Congress\nTrade agreements impacting job market significantly"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "News Analysis Dashboard for stocks",
+    "objectID": "kmeans_analysis.html",
+    "href": "kmeans_analysis.html",
+    "title": "Topic Clustering",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "Using KMeans unsupervised machine learning, we grouped all 95 job market news articles into 5 distinct topic clusters based on headline keywords. This approach is similar to how researchers segment job postings by industry and occupation — except applied to news text using TF-IDF vectorization."
+  },
+  {
+    "objectID": "kmeans_analysis.html#overview",
+    "href": "kmeans_analysis.html#overview",
+    "title": "Topic Clustering",
+    "section": "",
+    "text": "Using KMeans unsupervised machine learning, we grouped all 95 job market news articles into 5 distinct topic clusters based on headline keywords. This approach is similar to how researchers segment job postings by industry and occupation — except applied to news text using TF-IDF vectorization."
+  },
+  {
+    "objectID": "kmeans_analysis.html#how-it-works",
+    "href": "kmeans_analysis.html#how-it-works",
+    "title": "Topic Clustering",
+    "section": "How It Works",
+    "text": "How It Works\n\nHeadlines are converted into numerical vectors using TF-IDF\nKMeans groups similar articles into 5 clusters automatically\nPCA reduces the vectors to 2D so we can visualize the clusters\nEach cluster is labeled based on its top keywords"
+  },
+  {
+    "objectID": "kmeans_analysis.html#the-5-topic-clusters-discovered",
+    "href": "kmeans_analysis.html#the-5-topic-clusters-discovered",
+    "title": "Topic Clustering",
+    "section": "The 5 Topic Clusters Discovered",
+    "text": "The 5 Topic Clusters Discovered\n\n\n\nCluster\nTheme\nArticle Count\n\n\n\n\nMarket & Economy\nFed rates, wages, job reports\n35\n\n\nGlobal & Policy\nGlobal hiring, layoffs, employment\n23\n\n\nAI & Technology\nAI jobs, tech hiring, CV tools\n17\n\n\nHiring & Employment\nHR, recruitment, job search\n13\n\n\nSalary & Growth\nLabor market, unemployment, growth\n7"
+  },
+  {
+    "objectID": "kmeans_analysis.html#clustering-dashboard",
+    "href": "kmeans_analysis.html#clustering-dashboard",
+    "title": "Topic Clustering",
+    "section": "Clustering Dashboard",
+    "text": "Clustering Dashboard\nThe PCA scatter plot shows how articles naturally separate into topic groups. The bar charts show article count and average sentiment per cluster.\n\n\n\nKMeans Dashboard"
+  },
+  {
+    "objectID": "kmeans_analysis.html#deep-dive-analysis",
+    "href": "kmeans_analysis.html#deep-dive-analysis",
+    "title": "Topic Clustering",
+    "section": "Deep Dive Analysis",
+    "text": "Deep Dive Analysis\nThe pie chart shows the overall topic distribution — Market & Economy dominates at 36.8% of all coverage. The box plots reveal sentiment variation within each cluster.\n\n\n\nKMeans Deep Dive"
+  },
+  {
+    "objectID": "kmeans_analysis.html#key-findings",
+    "href": "kmeans_analysis.html#key-findings",
+    "title": "Topic Clustering",
+    "section": "Key Findings",
+    "text": "Key Findings\n\nMarket & Economy is the most covered topic with 35 articles\nAI & Technology articles have the highest average positive sentiment\nGlobal & Policy articles tend toward neutral to slightly negative sentiment\nClusters align with real-world job market themes showing KMeans effectively discovered meaningful groupings without any manual labeling"
   },
   {
     "objectID": "Untitled.html",

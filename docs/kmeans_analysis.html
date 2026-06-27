@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>About – News Analysis Dashboard</title>
+<title>Topic Clustering – News Analysis Dashboard</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -125,11 +125,11 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Correlation Insights</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./kmeans_analysis.html"> 
+    <a class="nav-link active" href="./kmeans_analysis.html" aria-current="page"> 
 <span class="menu-text">Topic Clustering</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -143,15 +143,26 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#how-it-works" id="toc-how-it-works" class="nav-link" data-scroll-target="#how-it-works">How It Works</a></li>
+  <li><a href="#the-5-topic-clusters-discovered" id="toc-the-5-topic-clusters-discovered" class="nav-link" data-scroll-target="#the-5-topic-clusters-discovered">The 5 Topic Clusters Discovered</a></li>
+  <li><a href="#clustering-dashboard" id="toc-clustering-dashboard" class="nav-link" data-scroll-target="#clustering-dashboard">Clustering Dashboard</a></li>
+  <li><a href="#deep-dive-analysis" id="toc-deep-dive-analysis" class="nav-link" data-scroll-target="#deep-dive-analysis">Deep Dive Analysis</a></li>
+  <li><a href="#key-findings" id="toc-key-findings" class="nav-link" data-scroll-target="#key-findings">Key Findings</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">Topic Clustering</h1>
 </div>
 
 
@@ -168,9 +179,94 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>About this site</p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>Using KMeans unsupervised machine learning, we grouped all 95 job market news articles into 5 distinct topic clusters based on headline keywords. This approach is similar to how researchers segment job postings by industry and occupation — except applied to news text using TF-IDF vectorization.</p>
+<hr>
+</section>
+<section id="how-it-works" class="level2">
+<h2 class="anchored" data-anchor-id="how-it-works">How It Works</h2>
+<ol type="1">
+<li>Headlines are converted into numerical vectors using <strong>TF-IDF</strong></li>
+<li><strong>KMeans</strong> groups similar articles into 5 clusters automatically</li>
+<li><strong>PCA</strong> reduces the vectors to 2D so we can visualize the clusters</li>
+<li>Each cluster is labeled based on its top keywords</li>
+</ol>
+<hr>
+</section>
+<section id="the-5-topic-clusters-discovered" class="level2">
+<h2 class="anchored" data-anchor-id="the-5-topic-clusters-discovered">The 5 Topic Clusters Discovered</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Cluster</th>
+<th>Theme</th>
+<th>Article Count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Market &amp; Economy</td>
+<td>Fed rates, wages, job reports</td>
+<td>35</td>
+</tr>
+<tr class="even">
+<td>Global &amp; Policy</td>
+<td>Global hiring, layoffs, employment</td>
+<td>23</td>
+</tr>
+<tr class="odd">
+<td>AI &amp; Technology</td>
+<td>AI jobs, tech hiring, CV tools</td>
+<td>17</td>
+</tr>
+<tr class="even">
+<td>Hiring &amp; Employment</td>
+<td>HR, recruitment, job search</td>
+<td>13</td>
+</tr>
+<tr class="odd">
+<td>Salary &amp; Growth</td>
+<td>Labor market, unemployment, growth</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="clustering-dashboard" class="level2">
+<h2 class="anchored" data-anchor-id="clustering-dashboard">Clustering Dashboard</h2>
+<p>The PCA scatter plot shows how articles naturally separate into topic groups. The bar charts show article count and average sentiment per cluster.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="kmeans_dashboard.png" class="img-fluid figure-img"></p>
+<figcaption>KMeans Dashboard</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="deep-dive-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="deep-dive-analysis">Deep Dive Analysis</h2>
+<p>The pie chart shows the overall topic distribution — Market &amp; Economy dominates at 36.8% of all coverage. The box plots reveal sentiment variation within each cluster.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="kmeans_deep_dive.png" class="img-fluid figure-img"></p>
+<figcaption>KMeans Deep Dive</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="key-findings" class="level2">
+<h2 class="anchored" data-anchor-id="key-findings">Key Findings</h2>
+<ul>
+<li><strong>Market &amp; Economy</strong> is the most covered topic with 35 articles</li>
+<li><strong>AI &amp; Technology</strong> articles have the highest average positive sentiment</li>
+<li><strong>Global &amp; Policy</strong> articles tend toward neutral to slightly negative sentiment</li>
+<li>Clusters align with real-world job market themes showing KMeans effectively discovered meaningful groupings without any manual labeling</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
