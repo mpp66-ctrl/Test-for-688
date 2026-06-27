@@ -1,0 +1,6 @@
+cluster_name,article_count,avg_sentiment
+AI & Technology,17,0.016
+Global & Policy,23,0.094
+Hiring & Employment,13,-0.101
+Market & Economy,35,0.05
+Salary & Growth,7,0.025

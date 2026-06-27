@@ -22,6 +22,8 @@ website:
         text: Analysis
       - href: correlation_insights.qmd
         text: Correlation Insights
+      - href: kmeans_analysis.qmd
+        text: Topic Clustering
       - href: about.qmd
         text: About
 
