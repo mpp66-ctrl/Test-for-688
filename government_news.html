@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Manan Patel">
-<meta name="dcterms.date" content="2026-06-11">
 
-<title>Data Gathering – News Analysis Dashboard</title>
+<title>Government News – News Analysis Dashboard</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -25,45 +23,10 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -107,9 +70,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -141,7 +101,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Stock News</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./government_news.html"> 
+    <a class="nav-link active" href="./government_news.html" aria-current="page"> 
 <span class="menu-text">Government News</span></a>
   </li>  
   <li class="nav-item">
@@ -153,7 +113,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">General News</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./data_gathering.html" aria-current="page"> 
+    <a class="nav-link" href="./data_gathering.html"> 
 <span class="menu-text">Data Gathering</span></a>
   </li>  
   <li class="nav-item">
@@ -189,11 +149,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
-  <li><a href="#api-connection" id="toc-api-connection" class="nav-link" data-scroll-target="#api-connection">API Connection</a></li>
-  <li><a href="#load-into-dataframe" id="toc-load-into-dataframe" class="nav-link" data-scroll-target="#load-into-dataframe">Load into DataFrame</a></li>
-  <li><a href="#save-to-csv" id="toc-save-to-csv" class="nav-link" data-scroll-target="#save-to-csv">Save to CSV</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#key-topics" id="toc-key-topics" class="nav-link" data-scroll-target="#key-topics">Key Topics</a></li>
+  <li><a href="#key-findings" id="toc-key-findings" class="nav-link" data-scroll-target="#key-findings">Key Findings</a></li>
   </ul>
 </nav>
     </div>
@@ -202,40 +159,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data Gathering</h1>
+<h1 class="title">Government News</h1>
 </div>
 
 
-<div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">Author</div>
-  <div class="quarto-title-meta-heading">Affiliation</div>
-  
-    <div class="quarto-title-meta-contents">
-    <p class="author">Manan Patel </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-        <p class="affiliation">
-            Boston University
-          </p>
-      </div>
-  </div>
 
 <div class="quarto-title-meta">
 
-      
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">June 11, 2026</p>
-    </div>
-  </div>
+    
   
-    <div>
-    <div class="quarto-title-meta-heading">Modified</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date-modified">June 11, 2026</p>
-    </div>
-  </div>
     
   </div>
   
@@ -246,157 +178,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>In this section, we gather job market news data using the NewsAPI. The goal is to collect recent articles related to hiring, employment, and the job market to analyze trends over time.</p>
+<p>This section covers government policies, regulations, and political developments.</p>
 </section>
-<section id="setup" class="level2">
-<h2 class="anchored" data-anchor-id="setup">Setup</h2>
-<p>We use the following Python libraries:</p>
+<section id="key-topics" class="level2">
+<h2 class="anchored" data-anchor-id="key-topics">Key Topics</h2>
 <ul>
-<li><code>requests</code> — to call the NewsAPI</li>
-<li><code>pandas</code> — to store and organize the data</li>
+<li>Federal Reserve decisions</li>
+<li>Government spending bills</li>
+<li>Trade policies</li>
+<li>Employment regulations</li>
+<li>Tax law changes</li>
 </ul>
-<div id="6d1a7a56" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 </section>
-<section id="api-connection" class="level2">
-<h2 class="anchored" data-anchor-id="api-connection">API Connection</h2>
-<p>We connect to the NewsAPI using our API key and search for articles related to the job market.</p>
-<div id="d6469494" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>API_KEY <span class="op">=</span> <span class="st">"9d9a703569914e82a61aa211e31ddba1"</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://newsapi.org/v2/everything"</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> {</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"q"</span>: <span class="st">"job market hiring employment"</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"language"</span>: <span class="st">"en"</span>,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"sortBy"</span>: <span class="st">"publishedAt"</span>,</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"pageSize"</span>: <span class="dv">100</span>,</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"apiKey"</span>: API_KEY</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url, params<span class="op">=</span>params)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> response.json()</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Status:"</span>, data[<span class="st">"status"</span>])</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total articles found:"</span>, data[<span class="st">"totalResults"</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Status: ok
-Total articles found: 254</code></pre>
-</div>
-</div>
-</section>
-<section id="load-into-dataframe" class="level2">
-<h2 class="anchored" data-anchor-id="load-into-dataframe">Load into DataFrame</h2>
-<p>We load the articles into a pandas DataFrame for easy analysis.</p>
-<div id="85be9928" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>articles <span class="op">=</span> data[<span class="st">"articles"</span>]</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(articles)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Shape:"</span>, df.shape)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Shape: (97, 8)</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="3">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">source</th>
-<th data-quarto-table-cell-role="th">author</th>
-<th data-quarto-table-cell-role="th">title</th>
-<th data-quarto-table-cell-role="th">description</th>
-<th data-quarto-table-cell-role="th">url</th>
-<th data-quarto-table-cell-role="th">urlToImage</th>
-<th data-quarto-table-cell-role="th">publishedAt</th>
-<th data-quarto-table-cell-role="th">content</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">0</th>
-<td>{'id': None, 'name': 'Arcamax.com'}</td>
-<td>Arcamax Publishing</td>
-<td>Older tech workers are tapping out early. Here...</td>
-<td>Steve Otteson wasn’t planning to retire. The 5...</td>
-<td>https://www.arcamax.com/business/businessnews/...</td>
-<td>https://resources.arcamax.com/newspics/387/387...</td>
-<td>2026-06-26T20:33:33Z</td>
-<td>Steve Otteson wasnt planning to retire.\r\nThe...</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">1</th>
-<td>{'id': None, 'name': 'New York Post'}</td>
-<td>Kyra Breslin</td>
-<td>Popular supermarket guarantees a job interview...</td>
-<td>In an era of growing economic uncertainty, one...</td>
-<td>https://nypost.com/2026/06/26/lifestyle/lidl-o...</td>
-<td>https://nypost.com/wp-content/uploads/sites/2/...</td>
-<td>2026-06-26T18:55:19Z</td>
-<td>In an era of growing economic uncertainty, one...</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">2</th>
-<td>{'id': None, 'name': 'Freerepublic.com'}</td>
-<td>Dallas Express</td>
-<td>$7.25 To $25? Senate Democrat’s New Federal Mi...</td>
-<td>Sen. Chris Murphy (D-Connecticut) introduced l...</td>
-<td>https://freerepublic.com/focus/f-news/4385561/...</td>
-<td>None</td>
-<td>2026-06-26T17:16:24Z</td>
-<td>Skip to comments.\r\n$7.25 To $25? Senate Demo...</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">3</th>
-<td>{'id': 'the-next-web', 'name': 'The Next Web'}</td>
-<td>Alina Maria Stan</td>
-<td>California built a tool to catch AI killing jobs</td>
-<td>California has built the first state tool to w...</td>
-<td>https://thenextweb.com/news/california-ai-job-...</td>
-<td>https://media.thenextweb.com/2026/06/Governor-...</td>
-<td>2026-06-26T14:29:58Z</td>
-<td>California has built the first state tool to w...</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">4</th>
-<td>{'id': None, 'name': 'The New Republic'}</td>
-<td>Right Now With Perry Bacon</td>
-<td>Transcript: How Colleges Can Defend Themselves...</td>
-<td>This is a lightly edited transcript of the Jun...</td>
-<td>https://newrepublic.com/article/212382/transcr...</td>
-<td>https://images.newrepublic.com/d56895b95df46c0...</td>
-<td>2026-06-26T11:49:36Z</td>
-<td>You have plenty of right-wing scholars, partic...</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-</section>
-<section id="save-to-csv" class="level2">
-<h2 class="anchored" data-anchor-id="save-to-csv">Save to CSV</h2>
-<p>We save the raw data to a CSV file for use in later steps.</p>
-<div id="54b13670" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">"job_market_news.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Data saved to job_market_news.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Data saved to job_market_news.csv</code></pre>
-</div>
-</div>
-</section>
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<section id="key-findings" class="level2">
+<h2 class="anchored" data-anchor-id="key-findings">Key Findings</h2>
 <ul>
-<li>Connected to NewsAPI successfully</li>
-<li>Retrieved <strong>97 articles</strong> across 8 columns</li>
-<li>Columns include: source, author, title, description, url, urlToImage, publishedAt</li>
-<li>Data saved to <code>job_market_news.csv</code> for cleaning and analysis in the next step</li>
+<li>Interest rates holding steady in 2025</li>
+<li>New AI regulation bills introduced in Congress</li>
+<li>Trade agreements impacting job market significantly</li>
 </ul>
 
 
