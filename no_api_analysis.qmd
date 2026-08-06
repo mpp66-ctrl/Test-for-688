@@ -1,0 +1,87 @@
+---
+title: "Without API Data Analysis"
+---
+
+## Overview
+
+This analysis runs entirely on data already collected in this repository
+(`job_market_news.csv`) using local, offline tools only — no external API
+calls, no keys required. It covers three angles not addressed elsewhere in
+this site: named-entity/keyword mining, hiring vs. layoff framing, and
+headline phrase (bigram) patterns.
+
+**Tools used:** pandas, matplotlib, regex-based keyword matching — all local.
+
+## Dashboard
+
+![Keyword, Skill & Entity Trend Analysis](keyword_trend_dashboard.png)
+
+The dashboard above covers:
+
+1. **Company mentions** — which companies appear most often in headlines/descriptions
+2. **Job role mentions** — which roles are discussed most
+3. **Skill/technology mentions** — which skills come up in coverage
+4. **Layoff vs. hiring framing** — how many articles lean toward job cuts vs. job growth
+5. **Top headline bigrams** — the most common two-word phrases in headlines
+6. **Layoff/hiring mentions over time** — trend of framing across the collection period
+
+## Key Findings
+
+- **97 articles** analyzed from the collected dataset
+- **20 articles** framed around hiring/growth vs. **6 articles** framed around layoffs — coverage skews toward hiring news in this sample
+- Most-mentioned companies: **Anthropic** (4), **Meta** (3), **Microsoft** (1)
+- Most-mentioned roles: **worker** (3), **CEO** (2), **employee** (2)
+
+### Top Companies Mentioned
+
+| Company | Mentions |
+|---|---|
+| Anthropic | 4 |
+| Meta | 3 |
+| Microsoft | 1 |
+
+### Top Roles Mentioned
+
+| Role | Mentions |
+|---|---|
+| Worker | 3 |
+| CEO | 2 |
+| Employee | 2 |
+| Engineer | 1 |
+| Manager | 1 |
+| Recruiter | 1 |
+| Driver | 1 |
+| Contractor | 1 |
+
+### Top Headline Phrases (Bigrams)
+
+| Phrase | Frequency |
+|---|---|
+| job seekers | 4 |
+| job market | 3 |
+| singapore grads | 2 |
+| grads battle | 2 |
+| battle lowpaid | 2 |
+| stigma get | 2 |
+| get hired | 2 |
+| questions resume | 2 |
+| resume gaps | 2 |
+| gaps expected | 2 |
+
+## Data Files
+
+- [company_mentions.csv](company_mentions.csv)
+- [role_mentions.csv](role_mentions.csv)
+- [headline_bigrams.csv](headline_bigrams.csv)
+- [layoff_hiring_flags.csv](layoff_hiring_flags.csv)
+
+## Interpretation
+
+The bigram list surfaces a recurring narrative thread around **entry-level job
+seekers facing resume gap stigma** ("job seekers," "resume gaps," "stigma get
+hired") alongside a **regional story about Singapore graduates** in a
+low-paid job market. Combined with the hiring/layoff split, the sample
+suggests current coverage is leaning toward structural hiring friction
+(resume gaps, stigma) rather than mass layoff events — though the small
+sample size (97 articles, only 6 layoff-flagged) means this should be read
+as directional, not definitive.

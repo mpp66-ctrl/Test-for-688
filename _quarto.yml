@@ -24,6 +24,8 @@ website:
         text: Correlation Insights
       - href: kmeans_analysis.qmd
         text: Topic Clustering
+      - href: no_api_analysis.qmd
+        text: Without API Data Analysis
       - href: about.qmd
         text: About
 

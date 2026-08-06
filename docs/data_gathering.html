@@ -169,6 +169,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Topic Clustering</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./no_api_analysis.html"> 
+<span class="menu-text">Without API Data Analysis</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
@@ -255,7 +259,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>requests</code> — to call the NewsAPI</li>
 <li><code>pandas</code> — to store and organize the data</li>
 </ul>
-<div id="8c792855" class="cell" data-execution_count="1">
+<div id="dc200be7" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -263,7 +267,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="api-connection" class="level2">
 <h2 class="anchored" data-anchor-id="api-connection">API Connection</h2>
 <p>We connect to the NewsAPI using our API key and search for articles related to the job market.</p>
-<div id="0c5d3436" class="cell" data-execution_count="2">
+<div id="ce51aa55" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>API_KEY <span class="op">=</span> <span class="st">"9d9a703569914e82a61aa211e31ddba1"</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://newsapi.org/v2/everything"</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -282,21 +286,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total articles found:"</span>, data[<span class="st">"totalResults"</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Status: ok
-Total articles found: 254</code></pre>
+Total articles found: 208</code></pre>
 </div>
 </div>
 </section>
 <section id="load-into-dataframe" class="level2">
 <h2 class="anchored" data-anchor-id="load-into-dataframe">Load into DataFrame</h2>
 <p>We load the articles into a pandas DataFrame for easy analysis.</p>
-<div id="d01a55ad" class="cell" data-execution_count="3">
+<div id="a2daecbe" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>articles <span class="op">=</span> data[<span class="st">"articles"</span>]</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(articles)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Shape:"</span>, df.shape)</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Shape: (97, 8)</code></pre>
+<pre><code>Shape: (98, 8)</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
@@ -319,58 +323,58 @@ Total articles found: 254</code></pre>
 <tbody>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">0</th>
-<td>{'id': None, 'name': 'Arcamax.com'}</td>
-<td>Arcamax Publishing</td>
-<td>Older tech workers are tapping out early. Here...</td>
-<td>Steve Otteson wasn’t planning to retire. The 5...</td>
-<td>https://www.arcamax.com/business/businessnews/...</td>
-<td>https://resources.arcamax.com/newspics/387/387...</td>
-<td>2026-06-26T20:33:33Z</td>
-<td>Steve Otteson wasnt planning to retire.\r\nThe...</td>
+<td>{'id': None, 'name': 'Federalreserve.gov'}</td>
+<td>None</td>
+<td>Cook, Outlook for the U.S. and Alaskan Economies</td>
+<td>Thank you, Jon, for that kind introduction. It...</td>
+<td>https://www.federalreserve.gov/newsevents/spee...</td>
+<td>https://www.federalreserve.gov/images/social-m...</td>
+<td>2026-08-05T20:05:00Z</td>
+<td>Thank you, Jon, for that kind introduction. It...</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">1</th>
-<td>{'id': None, 'name': 'New York Post'}</td>
-<td>Kyra Breslin</td>
-<td>Popular supermarket guarantees a job interview...</td>
-<td>In an era of growing economic uncertainty, one...</td>
-<td>https://nypost.com/2026/06/26/lifestyle/lidl-o...</td>
-<td>https://nypost.com/wp-content/uploads/sites/2/...</td>
-<td>2026-06-26T18:55:19Z</td>
-<td>In an era of growing economic uncertainty, one...</td>
+<td>{'id': 'financial-post', 'name': 'Financial Po...</td>
+<td>Canadian Cybersecurity Network</td>
+<td>OPINION: Canada’s cybersecurity hiring market ...</td>
+<td>Cybersecurity hiring has reached a&nbsp;seven-quart...</td>
+<td>https://financialpost.com/technology/tech-news...</td>
+<td>https://smartcdn.gprod.postmedia.digital/finan...</td>
+<td>2026-08-05T17:45:19Z</td>
+<td>As cyber threats to critical infrastructure, s...</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">2</th>
-<td>{'id': None, 'name': 'Freerepublic.com'}</td>
-<td>Dallas Express</td>
-<td>$7.25 To $25? Senate Democrat’s New Federal Mi...</td>
-<td>Sen. Chris Murphy (D-Connecticut) introduced l...</td>
-<td>https://freerepublic.com/focus/f-news/4385561/...</td>
-<td>None</td>
-<td>2026-06-26T17:16:24Z</td>
-<td>Skip to comments.\r\n$7.25 To $25? Senate Demo...</td>
+<td>{'id': None, 'name': 'Livemint'}</td>
+<td>Kanishka Singharia</td>
+<td>Why Persistent Systems is skipping campus hiri...</td>
+<td>Persistent Systems' decision comes as companie...</td>
+<td>https://www.livemint.com/companies/news/why-pe...</td>
+<td>https://www.livemint.com/lm-img/img/2026/08/05...</td>
+<td>2026-08-05T15:56:12Z</td>
+<td>Persistent Systems has decided to skip campus ...</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">3</th>
-<td>{'id': 'the-next-web', 'name': 'The Next Web'}</td>
-<td>Alina Maria Stan</td>
-<td>California built a tool to catch AI killing jobs</td>
-<td>California has built the first state tool to w...</td>
-<td>https://thenextweb.com/news/california-ai-job-...</td>
-<td>https://media.thenextweb.com/2026/06/Governor-...</td>
-<td>2026-06-26T14:29:58Z</td>
-<td>California has built the first state tool to w...</td>
+<td>{'id': None, 'name': 'The New Humanitarian'}</td>
+<td>Obi Anyadike, Oscar Nkala</td>
+<td>South Africa feels the economic cost of anti-m...</td>
+<td>The anti-migrant campaign may be setting the t...</td>
+<td>https://www.thenewhumanitarian.org/analysis/20...</td>
+<td>https://assets.thenewhumanitarian.org/s3fs-pub...</td>
+<td>2026-08-05T13:59:54Z</td>
+<td>South Africas Afrophobic anti-migrant protest ...</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">4</th>
-<td>{'id': None, 'name': 'The New Republic'}</td>
-<td>Right Now With Perry Bacon</td>
-<td>Transcript: How Colleges Can Defend Themselves...</td>
-<td>This is a lightly edited transcript of the Jun...</td>
-<td>https://newrepublic.com/article/212382/transcr...</td>
-<td>https://images.newrepublic.com/d56895b95df46c0...</td>
-<td>2026-06-26T11:49:36Z</td>
-<td>You have plenty of right-wing scholars, partic...</td>
+<td>{'id': None, 'name': 'Crypto Briefing'}</td>
+<td>Editorial Team</td>
+<td>ADP July jobs report misses badly, adding just...</td>
+<td>The weak job growth may pressure the Fed to re...</td>
+<td>https://cryptobriefing.com/adp-july-jobs-repor...</td>
+<td>https://static.cryptobriefing.com/wp-content/u...</td>
+<td>2026-08-05T12:26:36Z</td>
+<td>The weakest monthly gain in six months signals...</td>
 </tr>
 </tbody>
 </table>
@@ -382,7 +386,7 @@ Total articles found: 254</code></pre>
 <section id="save-to-csv" class="level2">
 <h2 class="anchored" data-anchor-id="save-to-csv">Save to CSV</h2>
 <p>We save the raw data to a CSV file for use in later steps.</p>
-<div id="ada16f9d" class="cell" data-execution_count="4">
+<div id="1d44b38a" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">"job_market_news.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Data saved to job_market_news.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
