@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Topic Clustering – News Analysis Dashboard</title>
+<title>Duplicate Story Detection – News Analysis Dashboard</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -125,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Correlation Insights</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./kmeans_analysis.html" aria-current="page"> 
+    <a class="nav-link" href="./kmeans_analysis.html"> 
 <span class="menu-text">Topic Clustering</span></a>
   </li>  
   <li class="nav-item">
@@ -137,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Claude Code Analysis</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./duplicate_story_detection.html"> 
+    <a class="nav-link active" href="./duplicate_story_detection.html" aria-current="page"> 
 <span class="menu-text">Duplicate Story Detection</span></a>
   </li>  
   <li class="nav-item">
@@ -161,11 +161,9 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#how-it-works" id="toc-how-it-works" class="nav-link" data-scroll-target="#how-it-works">How It Works</a></li>
-  <li><a href="#the-5-topic-clusters-discovered" id="toc-the-5-topic-clusters-discovered" class="nav-link" data-scroll-target="#the-5-topic-clusters-discovered">The 5 Topic Clusters Discovered</a></li>
-  <li><a href="#clustering-dashboard" id="toc-clustering-dashboard" class="nav-link" data-scroll-target="#clustering-dashboard">Clustering Dashboard</a></li>
-  <li><a href="#deep-dive-analysis" id="toc-deep-dive-analysis" class="nav-link" data-scroll-target="#deep-dive-analysis">Deep Dive Analysis</a></li>
-  <li><a href="#key-findings" id="toc-key-findings" class="nav-link" data-scroll-target="#key-findings">Key Findings</a></li>
+  <li><a href="#chart" id="toc-chart" class="nav-link" data-scroll-target="#chart">Chart</a></li>
+  <li><a href="#detailed-analysis" id="toc-detailed-analysis" class="nav-link" data-scroll-target="#detailed-analysis">Detailed Analysis</a></li>
+  <li><a href="#data-files" id="toc-data-files" class="nav-link" data-scroll-target="#data-files">Data Files</a></li>
   </ul>
 </nav>
     </div>
@@ -174,7 +172,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Topic Clustering</h1>
+<h1 class="title">Duplicate Story Detection</h1>
 </div>
 
 
@@ -193,88 +191,28 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>Using KMeans unsupervised machine learning, we grouped all 95 job market news articles into 5 distinct topic clusters based on headline keywords. This approach is similar to how researchers segment job postings by industry and occupation — except applied to news text using TF-IDF vectorization.</p>
-<hr>
+<p>This page covers a TF-IDF + cosine similarity analysis run on a fresh NewsAPI pull, used to detect articles that are really the same wire story republished by multiple outlets. This is a different technique from the LDA topic modeling on the Claude Code Analysis page, and it’s a check none of the other analyses in this repo perform — everywhere else, each row in the dataset is treated as an independent article.</p>
+<p><strong>Tools used:</strong> scikit-learn (<code>TfidfVectorizer</code>, <code>cosine_similarity</code>), a live NewsAPI request.</p>
 </section>
-<section id="how-it-works" class="level2">
-<h2 class="anchored" data-anchor-id="how-it-works">How It Works</h2>
-<ol type="1">
-<li>Headlines are converted into numerical vectors using <strong>TF-IDF</strong></li>
-<li><strong>KMeans</strong> groups similar articles into 5 clusters automatically</li>
-<li><strong>PCA</strong> reduces the vectors to 2D so we can visualize the clusters</li>
-<li>Each cluster is labeled based on its top keywords</li>
-</ol>
-<hr>
-</section>
-<section id="the-5-topic-clusters-discovered" class="level2">
-<h2 class="anchored" data-anchor-id="the-5-topic-clusters-discovered">The 5 Topic Clusters Discovered</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Cluster</th>
-<th>Theme</th>
-<th>Article Count</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Market &amp; Economy</td>
-<td>Fed rates, wages, job reports</td>
-<td>35</td>
-</tr>
-<tr class="even">
-<td>Global &amp; Policy</td>
-<td>Global hiring, layoffs, employment</td>
-<td>23</td>
-</tr>
-<tr class="odd">
-<td>AI &amp; Technology</td>
-<td>AI jobs, tech hiring, CV tools</td>
-<td>17</td>
-</tr>
-<tr class="even">
-<td>Hiring &amp; Employment</td>
-<td>HR, recruitment, job search</td>
-<td>13</td>
-</tr>
-<tr class="odd">
-<td>Salary &amp; Growth</td>
-<td>Labor market, unemployment, growth</td>
-<td>7</td>
-</tr>
-</tbody>
-</table>
-<hr>
-</section>
-<section id="clustering-dashboard" class="level2">
-<h2 class="anchored" data-anchor-id="clustering-dashboard">Clustering Dashboard</h2>
-<p>The PCA scatter plot shows how articles naturally separate into topic groups. The bar charts show article count and average sentiment per cluster.</p>
+<section id="chart" class="level2">
+<h2 class="anchored" data-anchor-id="chart">Chart</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="kmeans_dashboard.png" class="img-fluid figure-img"></p>
-<figcaption>KMeans Dashboard</figcaption>
+<p><img src="duplicate_story_detection.png" class="img-fluid figure-img"></p>
+<figcaption>Near-Duplicate / Syndicated Story Detection (fresh NewsAPI pull)</figcaption>
 </figure>
 </div>
-<hr>
 </section>
-<section id="deep-dive-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="deep-dive-analysis">Deep Dive Analysis</h2>
-<p>The pie chart shows the overall topic distribution — Market &amp; Economy dominates at 36.8% of all coverage. The box plots reveal sentiment variation within each cluster.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="kmeans_deep_dive.png" class="img-fluid figure-img"></p>
-<figcaption>KMeans Deep Dive</figcaption>
-</figure>
-</div>
-<hr>
+<section id="detailed-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="detailed-analysis">Detailed Analysis</h2>
+<p>Of the 98 fresh articles pulled, <strong>10 pairs (12.2% of all articles)</strong> are near-duplicates — the same story republished across outlets. Three pairs are <strong>exact duplicates (similarity = 1.0)</strong>: identical headlines from Yahoo Entertainment/Fortune, PR Newswire UK/PRNewswire, and even the same outlet (Medical Daily) publishing itself twice. Beyond exact copies, there’s a cluster of <strong>paraphrased wire coverage around Fed rate decisions</strong> (NPR, Times of India, Digital Journal all covering the same Fed story at 0.68–0.73 similarity) — meaning what looks like “several sources independently reporting on the Fed” is really a handful of outlets rewriting one wire feed.</p>
+<p>Bottom line: roughly <strong>1 in 8 “distinct” articles</strong> in this dataset isn’t actually independent reporting, which matters for anyone treating raw article counts as a proxy for topic importance elsewhere on this site (e.g., the source-frequency and topic-distribution charts) — those counts are quietly inflated by syndication, not just organic coverage volume.</p>
 </section>
-<section id="key-findings" class="level2">
-<h2 class="anchored" data-anchor-id="key-findings">Key Findings</h2>
+<section id="data-files" class="level2">
+<h2 class="anchored" data-anchor-id="data-files">Data Files</h2>
 <ul>
-<li><strong>Market &amp; Economy</strong> is the most covered topic with 35 articles</li>
-<li><strong>AI &amp; Technology</strong> articles have the highest average positive sentiment</li>
-<li><strong>Global &amp; Policy</strong> articles tend toward neutral to slightly negative sentiment</li>
-<li>Clusters align with real-world job market themes showing KMeans effectively discovered meaningful groupings without any manual labeling</li>
+<li><a href="duplicate_story_detection.py">duplicate_story_detection.py</a> — the analysis script</li>
+<li><a href="duplicate_story_summary.csv">duplicate_story_summary.csv</a> — the full list of detected duplicate pairs</li>
 </ul>
 
 

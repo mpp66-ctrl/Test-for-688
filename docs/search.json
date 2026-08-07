@@ -133,6 +133,174 @@
     "text": "Key Findings\n\nInterest rates holding steady in 2025\nNew AI regulation bills introduced in Congress\nTrade agreements impacting job market significantly"
   },
   {
+    "objectID": "duplicate_story_detection.html",
+    "href": "duplicate_story_detection.html",
+    "title": "Duplicate Story Detection",
+    "section": "",
+    "text": "This page covers a TF-IDF + cosine similarity analysis run on a fresh NewsAPI pull, used to detect articles that are really the same wire story republished by multiple outlets. This is a different technique from the LDA topic modeling on the Claude Code Analysis page, and it’s a check none of the other analyses in this repo perform — everywhere else, each row in the dataset is treated as an independent article.\nTools used: scikit-learn (TfidfVectorizer, cosine_similarity), a live NewsAPI request."
+  },
+  {
+    "objectID": "duplicate_story_detection.html#overview",
+    "href": "duplicate_story_detection.html#overview",
+    "title": "Duplicate Story Detection",
+    "section": "",
+    "text": "This page covers a TF-IDF + cosine similarity analysis run on a fresh NewsAPI pull, used to detect articles that are really the same wire story republished by multiple outlets. This is a different technique from the LDA topic modeling on the Claude Code Analysis page, and it’s a check none of the other analyses in this repo perform — everywhere else, each row in the dataset is treated as an independent article.\nTools used: scikit-learn (TfidfVectorizer, cosine_similarity), a live NewsAPI request."
+  },
+  {
+    "objectID": "duplicate_story_detection.html#chart",
+    "href": "duplicate_story_detection.html#chart",
+    "title": "Duplicate Story Detection",
+    "section": "Chart",
+    "text": "Chart\n\n\n\nNear-Duplicate / Syndicated Story Detection (fresh NewsAPI pull)"
+  },
+  {
+    "objectID": "duplicate_story_detection.html#detailed-analysis",
+    "href": "duplicate_story_detection.html#detailed-analysis",
+    "title": "Duplicate Story Detection",
+    "section": "Detailed Analysis",
+    "text": "Detailed Analysis\nOf the 98 fresh articles pulled, 10 pairs (12.2% of all articles) are near-duplicates — the same story republished across outlets. Three pairs are exact duplicates (similarity = 1.0): identical headlines from Yahoo Entertainment/Fortune, PR Newswire UK/PRNewswire, and even the same outlet (Medical Daily) publishing itself twice. Beyond exact copies, there’s a cluster of paraphrased wire coverage around Fed rate decisions (NPR, Times of India, Digital Journal all covering the same Fed story at 0.68–0.73 similarity) — meaning what looks like “several sources independently reporting on the Fed” is really a handful of outlets rewriting one wire feed.\nBottom line: roughly 1 in 8 “distinct” articles in this dataset isn’t actually independent reporting, which matters for anyone treating raw article counts as a proxy for topic importance elsewhere on this site (e.g., the source-frequency and topic-distribution charts) — those counts are quietly inflated by syndication, not just organic coverage volume."
+  },
+  {
+    "objectID": "duplicate_story_detection.html#data-files",
+    "href": "duplicate_story_detection.html#data-files",
+    "title": "Duplicate Story Detection",
+    "section": "Data Files",
+    "text": "Data Files\n\nduplicate_story_detection.py — the analysis script\nduplicate_story_summary.csv — the full list of detected duplicate pairs"
+  },
+  {
+    "objectID": "correlation_insights.html",
+    "href": "correlation_insights.html",
+    "title": "Correlation Insights",
+    "section": "",
+    "text": "This section explores the relationship between article sentiment and key article characteristics including title length, description length, and source reach (a proxy for publisher popularity). We used Pearson correlation and statistical testing to identify meaningful patterns."
+  },
+  {
+    "objectID": "correlation_insights.html#overview",
+    "href": "correlation_insights.html#overview",
+    "title": "Correlation Insights",
+    "section": "",
+    "text": "This section explores the relationship between article sentiment and key article characteristics including title length, description length, and source reach (a proxy for publisher popularity). We used Pearson correlation and statistical testing to identify meaningful patterns."
+  },
+  {
+    "objectID": "correlation_insights.html#key-findings",
+    "href": "correlation_insights.html#key-findings",
+    "title": "Correlation Insights",
+    "section": "Key Findings",
+    "text": "Key Findings\n\nTitle Length vs Source Reach showed the strongest correlation (r=0.382, p&lt;0.001) meaning larger publications tend to write longer headlines\nSentiment vs Description Length showed a slight positive relationship (r=0.148) suggesting more positive articles tend to have longer descriptions\nSentiment vs Title Length showed virtually no correlation (r=-0.013) meaning headline tone is independent of headline length"
+  },
+  {
+    "objectID": "correlation_insights.html#correlation-dashboard",
+    "href": "correlation_insights.html#correlation-dashboard",
+    "title": "Correlation Insights",
+    "section": "Correlation Dashboard",
+    "text": "Correlation Dashboard\nFour charts showing scatter plots with trend lines between sentiment scores, article lengths and source reach, plus a full correlation heatmap.\n\n\n\nCorrelation Dashboard"
+  },
+  {
+    "objectID": "correlation_insights.html#distribution-by-sentiment-category",
+    "href": "correlation_insights.html#distribution-by-sentiment-category",
+    "title": "Correlation Insights",
+    "section": "Distribution by Sentiment Category",
+    "text": "Distribution by Sentiment Category\nBox plots comparing title length distributions across Positive, Neutral and Negative articles, alongside average source reach per sentiment category.\n\n\n\nDistribution Analysis"
+  },
+  {
+    "objectID": "correlation_insights.html#data",
+    "href": "correlation_insights.html#data",
+    "title": "Correlation Insights",
+    "section": "Data",
+    "text": "Data\nTwo CSV files were generated from this analysis:\n\ncorrelation_analysis_data.csv — full article dataset with computed features\ncorrelation_summary.csv — summary of all correlation coefficients and p-values"
+  },
+  {
+    "objectID": "analysis.html",
+    "href": "analysis.html",
+    "title": "News Analysis",
+    "section": "",
+    "text": "This section presents a comprehensive analysis of job market news data collected via the NewsAPI. We performed exploratory data analysis, sentiment analysis, and built a machine learning model to classify article sentiment."
+  },
+  {
+    "objectID": "analysis.html#overview",
+    "href": "analysis.html#overview",
+    "title": "News Analysis",
+    "section": "",
+    "text": "This section presents a comprehensive analysis of job market news data collected via the NewsAPI. We performed exploratory data analysis, sentiment analysis, and built a machine learning model to classify article sentiment."
+  },
+  {
+    "objectID": "analysis.html#job-market-news-dashboard",
+    "href": "analysis.html#job-market-news-dashboard",
+    "title": "News Analysis",
+    "section": "Job Market News Dashboard",
+    "text": "Job Market News Dashboard\nThis dashboard shows the top news sources, publishing trends over time, most common words in headlines, and the distribution of articles by hour of day.\n\n\n\nJob Market News Dashboard"
+  },
+  {
+    "objectID": "analysis.html#extended-analysis---day-description-trends",
+    "href": "analysis.html#extended-analysis---day-description-trends",
+    "title": "News Analysis",
+    "section": "Extended Analysis - Day & Description Trends",
+    "text": "Extended Analysis - Day & Description Trends\nThis chart breaks down articles by day of the week and identifies the most frequent words in article descriptions. Friday had the highest volume of job market news published.\n\n\n\nExtended Analysis"
+  },
+  {
+    "objectID": "analysis.html#sentiment-ml-model-dashboard",
+    "href": "analysis.html#sentiment-ml-model-dashboard",
+    "title": "News Analysis",
+    "section": "Sentiment & ML Model Dashboard",
+    "text": "Sentiment & ML Model Dashboard\nUsing TextBlob, we performed sentiment analysis on all article headlines classifying them as Positive, Neutral, or Negative. A Naive Bayes ML model was then trained to predict sentiment from headline text achieving 65% accuracy.\nKey findings: - Most headlines were Neutral in tone - Words like “job”, “growth”, “hiring” dominated positive headlines - RTE and Breitbart News had the highest average sentiment scores\n\n\n\nML Sentiment Dashboard"
+  },
+  {
+    "objectID": "analysis.html#word-cloud-model-performance",
+    "href": "analysis.html#word-cloud-model-performance",
+    "title": "News Analysis",
+    "section": "Word Cloud & Model Performance",
+    "text": "Word Cloud & Model Performance\nThe word cloud highlights the most frequent words in positive job market headlines. “job”, “growth”, “market”, and “hiring” appear most prominently. The model performance chart shows precision and recall scores per sentiment class.\n\n\n\nWord Cloud and Model Performance"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "claude_code_analysis.html",
+    "href": "claude_code_analysis.html",
+    "title": "Claude Code Analysis",
+    "section": "",
+    "text": "This page covers an LDA (Latent Dirichlet Allocation) topic modeling analysis run on a fresh NewsAPI pull of job-market articles — a probabilistic topic modeling technique distinct from the hard KMeans clustering used on the Topic Clustering page.\nTools used: scikit-learn (CountVectorizer, LatentDirichletAllocation), a live NewsAPI request."
+  },
+  {
+    "objectID": "claude_code_analysis.html#overview",
+    "href": "claude_code_analysis.html#overview",
+    "title": "Claude Code Analysis",
+    "section": "",
+    "text": "This page covers an LDA (Latent Dirichlet Allocation) topic modeling analysis run on a fresh NewsAPI pull of job-market articles — a probabilistic topic modeling technique distinct from the hard KMeans clustering used on the Topic Clustering page.\nTools used: scikit-learn (CountVectorizer, LatentDirichletAllocation), a live NewsAPI request."
+  },
+  {
+    "objectID": "claude_code_analysis.html#chart",
+    "href": "claude_code_analysis.html#chart",
+    "title": "Claude Code Analysis",
+    "section": "Chart",
+    "text": "Chart\n\n\n\nLDA Topic Modeling — Job Market News (fresh NewsAPI pull)"
+  },
+  {
+    "objectID": "claude_code_analysis.html#topic-summary",
+    "href": "claude_code_analysis.html#topic-summary",
+    "title": "Claude Code Analysis",
+    "section": "Topic Summary",
+    "text": "Topic Summary\n\n\n\n\n\n\n\n\n\nTopic\nTop Words\nArticles\nAvg. Confidence\n\n\n\n\njob / ai / hiring\njob, ai, hiring, data, market, new, companies, skills\n34\n0.795\n\n\nmarket / labor / rate\nmarket, labor, rate, july, labor market, employment, job, sensex\n19\n0.855\n\n\nfederal / rates / reserve\nfederal, rates, reserve, federal reserve, inflation, expected, fed, steady\n15\n0.804\n\n\ngrowth / male / nurses\ngrowth, male, nurses, nursing, south, north, oil, economic\n12\n0.695\n\n\njuly / post / work\njuly, post, work, ai, intelligence, artificial intelligence, artificial, private\n11\n0.799\n\n\nsocial / credit / trade\nsocial, credit, trade, company, global, earnings, week, inflation\n7\n0.757"
+  },
+  {
+    "objectID": "claude_code_analysis.html#analysis",
+    "href": "claude_code_analysis.html#analysis",
+    "title": "Claude Code Analysis",
+    "section": "Analysis",
+    "text": "Analysis\nSix topics emerged, and the split is uneven: “job / ai / hiring” dominates at 34 articles (35%) — general AI-and-hiring coverage — nearly double the next-largest topic. The next tier is “market / labor / rate” (19) and “federal / rates / reserve” (15), which together show that macroeconomic/Fed policy commentary is a distinct, sizeable chunk of “job market” coverage, not just noise — something the existing KMeans clusters (labeled things like “Salary & Growth”) don’t call out explicitly as its own theme. The smallest topic, “social / credit / trade” (7 articles), mixes earnings/inflation language — likely coverage that only tangentially touches employment.\nWithin the dominant topic, the top-weighted terms — job, ai, hiring, data, market — confirm that “AI’s effect on hiring” is currently the single biggest storyline in this news sample, ahead of traditional labor-market or policy framing. Average topic-assignment confidence is high across the board (0.70–0.86), meaning LDA found genuinely separable topics rather than a muddy mix."
+  },
+  {
+    "objectID": "claude_code_analysis.html#data-files",
+    "href": "claude_code_analysis.html#data-files",
+    "title": "Claude Code Analysis",
+    "section": "Data Files",
+    "text": "Data Files\n\nlda_topic_modeling.py — the analysis script\nlda_topic_summary.csv — the raw topic summary data"
+  },
+  {
     "objectID": "data_gathering.html",
     "href": "data_gathering.html",
     "title": "Data Gathering",
@@ -180,139 +348,6 @@
     "title": "Data Gathering",
     "section": "Summary",
     "text": "Summary\n\nConnected to NewsAPI successfully\nRetrieved 97 articles across 8 columns\nColumns include: source, author, title, description, url, urlToImage, publishedAt\nData saved to job_market_news.csv for cleaning and analysis in the next step"
-  },
-  {
-    "objectID": "claude_code_analysis.html",
-    "href": "claude_code_analysis.html",
-    "title": "Claude Code Analysis",
-    "section": "",
-    "text": "This page covers an LDA (Latent Dirichlet Allocation) topic modeling analysis run on a fresh NewsAPI pull of job-market articles — a probabilistic topic modeling technique distinct from the hard KMeans clustering used on the Topic Clustering page.\nTools used: scikit-learn (CountVectorizer, LatentDirichletAllocation), a live NewsAPI request."
-  },
-  {
-    "objectID": "claude_code_analysis.html#overview",
-    "href": "claude_code_analysis.html#overview",
-    "title": "Claude Code Analysis",
-    "section": "",
-    "text": "This page covers an LDA (Latent Dirichlet Allocation) topic modeling analysis run on a fresh NewsAPI pull of job-market articles — a probabilistic topic modeling technique distinct from the hard KMeans clustering used on the Topic Clustering page.\nTools used: scikit-learn (CountVectorizer, LatentDirichletAllocation), a live NewsAPI request."
-  },
-  {
-    "objectID": "claude_code_analysis.html#chart",
-    "href": "claude_code_analysis.html#chart",
-    "title": "Claude Code Analysis",
-    "section": "Chart",
-    "text": "Chart\n\n\n\nLDA Topic Modeling — Job Market News (fresh NewsAPI pull)"
-  },
-  {
-    "objectID": "claude_code_analysis.html#topic-summary",
-    "href": "claude_code_analysis.html#topic-summary",
-    "title": "Claude Code Analysis",
-    "section": "Topic Summary",
-    "text": "Topic Summary\n\n\n\n\n\n\n\n\n\nTopic\nTop Words\nArticles\nAvg. Confidence\n\n\n\n\njob / ai / hiring\njob, ai, hiring, data, market, new, companies, skills\n34\n0.795\n\n\nmarket / labor / rate\nmarket, labor, rate, july, labor market, employment, job, sensex\n19\n0.855\n\n\nfederal / rates / reserve\nfederal, rates, reserve, federal reserve, inflation, expected, fed, steady\n15\n0.804\n\n\ngrowth / male / nurses\ngrowth, male, nurses, nursing, south, north, oil, economic\n12\n0.695\n\n\njuly / post / work\njuly, post, work, ai, intelligence, artificial intelligence, artificial, private\n11\n0.799\n\n\nsocial / credit / trade\nsocial, credit, trade, company, global, earnings, week, inflation\n7\n0.757"
-  },
-  {
-    "objectID": "claude_code_analysis.html#analysis",
-    "href": "claude_code_analysis.html#analysis",
-    "title": "Claude Code Analysis",
-    "section": "Analysis",
-    "text": "Analysis\nSix topics emerged, and the split is uneven: “job / ai / hiring” dominates at 34 articles (35%) — general AI-and-hiring coverage — nearly double the next-largest topic. The next tier is “market / labor / rate” (19) and “federal / rates / reserve” (15), which together show that macroeconomic/Fed policy commentary is a distinct, sizeable chunk of “job market” coverage, not just noise — something the existing KMeans clusters (labeled things like “Salary & Growth”) don’t call out explicitly as its own theme. The smallest topic, “social / credit / trade” (7 articles), mixes earnings/inflation language — likely coverage that only tangentially touches employment.\nWithin the dominant topic, the top-weighted terms — job, ai, hiring, data, market — confirm that “AI’s effect on hiring” is currently the single biggest storyline in this news sample, ahead of traditional labor-market or policy framing. Average topic-assignment confidence is high across the board (0.70–0.86), meaning LDA found genuinely separable topics rather than a muddy mix."
-  },
-  {
-    "objectID": "claude_code_analysis.html#data-files",
-    "href": "claude_code_analysis.html#data-files",
-    "title": "Claude Code Analysis",
-    "section": "Data Files",
-    "text": "Data Files\n\nlda_topic_modeling.py — the analysis script\nlda_topic_summary.csv — the raw topic summary data"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
-  },
-  {
-    "objectID": "analysis.html",
-    "href": "analysis.html",
-    "title": "News Analysis",
-    "section": "",
-    "text": "This section presents a comprehensive analysis of job market news data collected via the NewsAPI. We performed exploratory data analysis, sentiment analysis, and built a machine learning model to classify article sentiment."
-  },
-  {
-    "objectID": "analysis.html#overview",
-    "href": "analysis.html#overview",
-    "title": "News Analysis",
-    "section": "",
-    "text": "This section presents a comprehensive analysis of job market news data collected via the NewsAPI. We performed exploratory data analysis, sentiment analysis, and built a machine learning model to classify article sentiment."
-  },
-  {
-    "objectID": "analysis.html#job-market-news-dashboard",
-    "href": "analysis.html#job-market-news-dashboard",
-    "title": "News Analysis",
-    "section": "Job Market News Dashboard",
-    "text": "Job Market News Dashboard\nThis dashboard shows the top news sources, publishing trends over time, most common words in headlines, and the distribution of articles by hour of day.\n\n\n\nJob Market News Dashboard"
-  },
-  {
-    "objectID": "analysis.html#extended-analysis---day-description-trends",
-    "href": "analysis.html#extended-analysis---day-description-trends",
-    "title": "News Analysis",
-    "section": "Extended Analysis - Day & Description Trends",
-    "text": "Extended Analysis - Day & Description Trends\nThis chart breaks down articles by day of the week and identifies the most frequent words in article descriptions. Friday had the highest volume of job market news published.\n\n\n\nExtended Analysis"
-  },
-  {
-    "objectID": "analysis.html#sentiment-ml-model-dashboard",
-    "href": "analysis.html#sentiment-ml-model-dashboard",
-    "title": "News Analysis",
-    "section": "Sentiment & ML Model Dashboard",
-    "text": "Sentiment & ML Model Dashboard\nUsing TextBlob, we performed sentiment analysis on all article headlines classifying them as Positive, Neutral, or Negative. A Naive Bayes ML model was then trained to predict sentiment from headline text achieving 65% accuracy.\nKey findings: - Most headlines were Neutral in tone - Words like “job”, “growth”, “hiring” dominated positive headlines - RTE and Breitbart News had the highest average sentiment scores\n\n\n\nML Sentiment Dashboard"
-  },
-  {
-    "objectID": "analysis.html#word-cloud-model-performance",
-    "href": "analysis.html#word-cloud-model-performance",
-    "title": "News Analysis",
-    "section": "Word Cloud & Model Performance",
-    "text": "Word Cloud & Model Performance\nThe word cloud highlights the most frequent words in positive job market headlines. “job”, “growth”, “market”, and “hiring” appear most prominently. The model performance chart shows precision and recall scores per sentiment class.\n\n\n\nWord Cloud and Model Performance"
-  },
-  {
-    "objectID": "correlation_insights.html",
-    "href": "correlation_insights.html",
-    "title": "Correlation Insights",
-    "section": "",
-    "text": "This section explores the relationship between article sentiment and key article characteristics including title length, description length, and source reach (a proxy for publisher popularity). We used Pearson correlation and statistical testing to identify meaningful patterns."
-  },
-  {
-    "objectID": "correlation_insights.html#overview",
-    "href": "correlation_insights.html#overview",
-    "title": "Correlation Insights",
-    "section": "",
-    "text": "This section explores the relationship between article sentiment and key article characteristics including title length, description length, and source reach (a proxy for publisher popularity). We used Pearson correlation and statistical testing to identify meaningful patterns."
-  },
-  {
-    "objectID": "correlation_insights.html#key-findings",
-    "href": "correlation_insights.html#key-findings",
-    "title": "Correlation Insights",
-    "section": "Key Findings",
-    "text": "Key Findings\n\nTitle Length vs Source Reach showed the strongest correlation (r=0.382, p&lt;0.001) meaning larger publications tend to write longer headlines\nSentiment vs Description Length showed a slight positive relationship (r=0.148) suggesting more positive articles tend to have longer descriptions\nSentiment vs Title Length showed virtually no correlation (r=-0.013) meaning headline tone is independent of headline length"
-  },
-  {
-    "objectID": "correlation_insights.html#correlation-dashboard",
-    "href": "correlation_insights.html#correlation-dashboard",
-    "title": "Correlation Insights",
-    "section": "Correlation Dashboard",
-    "text": "Correlation Dashboard\nFour charts showing scatter plots with trend lines between sentiment scores, article lengths and source reach, plus a full correlation heatmap.\n\n\n\nCorrelation Dashboard"
-  },
-  {
-    "objectID": "correlation_insights.html#distribution-by-sentiment-category",
-    "href": "correlation_insights.html#distribution-by-sentiment-category",
-    "title": "Correlation Insights",
-    "section": "Distribution by Sentiment Category",
-    "text": "Distribution by Sentiment Category\nBox plots comparing title length distributions across Positive, Neutral and Negative articles, alongside average source reach per sentiment category.\n\n\n\nDistribution Analysis"
-  },
-  {
-    "objectID": "correlation_insights.html#data",
-    "href": "correlation_insights.html#data",
-    "title": "Correlation Insights",
-    "section": "Data",
-    "text": "Data\nTwo CSV files were generated from this analysis:\n\ncorrelation_analysis_data.csv — full article dataset with computed features\ncorrelation_summary.csv — summary of all correlation coefficients and p-values"
   },
   {
     "objectID": "general_news.html",
@@ -404,12 +439,5 @@
     "title": "News Analysis Dashboard",
     "section": "",
     "text": "import requests\n\nAPI_KEY = \"9d9a703569914e82a61aa211e31ddba1\"\nurl = \"https://newsapi.org/v2/everything\"\n\nparams = {\n    \"q\": \"job market hiring employment\",\n    \"language\": \"en\",\n    \"sortBy\": \"publishedAt\",\n    \"pageSize\": 100,\n    \"apiKey\": API_KEY\n}\n\nresponse = requests.get(url, params=params)\ndata = response.json()\n\nprint(\"Status:\", data[\"status\"])\nprint(\"Total articles found:\", data[\"totalResults\"])\n\nStatus: ok\nTotal articles found: 292\n\n\n\nimport pandas as pd\n\narticles = data[\"articles\"]\ndf = pd.DataFrame(articles)\n\nprint(df.shape)\ndf.head()\n\n(97, 8)\n\n\n\n\n\n\n\n\n\nsource\nauthor\ntitle\ndescription\nurl\nurlToImage\npublishedAt\ncontent\n\n\n\n\n0\n{'id': None, 'name': 'Crypto Briefing'}\nEditorial Team\nMeta launches $115M America’s Workforce Academ...\nMeta's initiative may set a new standard for w...\nhttps://cryptobriefing.com/meta-workforce-acad...\nhttps://static.cryptobriefing.com/wp-content/u...\n2026-06-09T22:36:59Z\nThe five-week program covers everything from t...\n\n\n1\n{'id': None, 'name': 'New Zealand Herald'}\nBijou Johnson\nBay of Plenty records highest unemployment rat...\nRecruiters report more cautious employers and ...\nhttps://www.nzherald.co.nz/bay-of-plenty-times...\nhttps://www.nzherald.co.nz/resizer/v2/XNKVDLGB...\n2026-06-09T18:00:00Z\nHe said Bay of Plenty unemployment usually inc...\n\n\n2\n{'id': None, 'name': 'PRNewswire'}\nNone\nGlobal Hiring Outlook Holds Steady in Q3 With ...\nEmployers cite economic uncertainty, above AI,...\nhttps://www.prnewswire.com/news-releases/globa...\nhttps://mmx.prnewswire.com/media/MS409711/Manp...\n2026-06-09T13:31:00Z\nYet beneath the headline number, a more comple...\n\n\n3\n{'id': 'the-times-of-india', 'name': 'The Time...\nSreeradha Basu\nFlexi-staffing industry in India sees 8% YoY g...\nThe push for formal employment, strongly suppo...\nhttps://economictimes.indiatimes.com/jobs/hr-p...\nhttps://img.etimg.com/thumb/msid-131611910,wid...\n2026-06-09T12:55:19Z\nBengaluru: Indias flexi-staffing industry has ...\n\n\n4\n{'id': 'fortune', 'name': 'Fortune'}\nSheryl Estrada\nThe man behind Claude Code says you’re compari...\nBoris Cherny says most companies are asking th...\nhttps://fortune.com/2026/06/09/boris-cherny-cl...\nhttps://fortune.com/img-assets/wp-content/uplo...\n2026-06-09T10:37:11Z\nGood morning. Five years after its founding, A...\n\n\n\n\n\n\n\n\ndf.to_csv(\"job_market_news.csv\", index=False)\nprint(\"Saved!\")\n\nSaved!"
-  },
-  {
-    "objectID": "claude_code_analysis.html#part-2-near-duplicate-syndicated-story-detection",
-    "href": "claude_code_analysis.html#part-2-near-duplicate-syndicated-story-detection",
-    "title": "Claude Code Analysis",
-    "section": "Part 2: Near-Duplicate / Syndicated Story Detection",
-    "text": "Part 2: Near-Duplicate / Syndicated Story Detection\n\nOverview\nThis section covers a second analysis: TF-IDF + cosine similarity run on another fresh NewsAPI pull, used to detect articles that are really the same wire story republished by multiple outlets. This is a different technique from Part 1’s LDA topic modeling, and it’s a check none of the other analyses in this repo perform — everywhere else, each row in the dataset is treated as an independent article.\nTools used: scikit-learn (TfidfVectorizer, cosine_similarity), a live NewsAPI request.\n\n\nChart\n\n\n\nNear-Duplicate / Syndicated Story Detection (fresh NewsAPI pull)\n\n\n\n\nDetailed Analysis\nOf the 98 fresh articles pulled, 10 pairs (12.2% of all articles) are near-duplicates — the same story republished across outlets. Three pairs are exact duplicates (similarity = 1.0): identical headlines from Yahoo Entertainment/Fortune, PR Newswire UK/PRNewswire, and even the same outlet (Medical Daily) publishing itself twice. Beyond exact copies, there’s a cluster of paraphrased wire coverage around Fed rate decisions (NPR, Times of India, Digital Journal all covering the same Fed story at 0.68–0.73 similarity) — meaning what looks like “several sources independently reporting on the Fed” is really a handful of outlets rewriting one wire feed.\nBottom line: roughly 1 in 8 “distinct” articles in this dataset isn’t actually independent reporting, which matters for anyone treating raw article counts as a proxy for topic importance elsewhere on this site (e.g., the source-frequency and topic-distribution charts) — those counts are quietly inflated by syndication, not just organic coverage volume.\n\n\nData Files\n\nduplicate_story_detection.py — the analysis script\nduplicate_story_summary.csv — the full list of detected duplicate pairs"
   }
 ]

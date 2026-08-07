@@ -28,6 +28,8 @@ website:
         text: Without API Data Analysis
       - href: claude_code_analysis.qmd
         text: Claude Code Analysis
+      - href: duplicate_story_detection.qmd
+        text: Duplicate Story Detection
       - href: about.qmd
         text: About
 

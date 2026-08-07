@@ -137,6 +137,10 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Claude Code Analysis</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./duplicate_story_detection.html"> 
+<span class="menu-text">Duplicate Story Detection</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
@@ -161,13 +165,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#topic-summary" id="toc-topic-summary" class="nav-link" data-scroll-target="#topic-summary">Topic Summary</a></li>
   <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">Analysis</a></li>
   <li><a href="#data-files" id="toc-data-files" class="nav-link" data-scroll-target="#data-files">Data Files</a></li>
-  <li><a href="#part-2-near-duplicate-syndicated-story-detection" id="toc-part-2-near-duplicate-syndicated-story-detection" class="nav-link" data-scroll-target="#part-2-near-duplicate-syndicated-story-detection">Part 2: Near-Duplicate / Syndicated Story Detection</a>
-  <ul class="collapse">
-  <li><a href="#overview-1" id="toc-overview-1" class="nav-link" data-scroll-target="#overview-1">Overview</a></li>
-  <li><a href="#chart-1" id="toc-chart-1" class="nav-link" data-scroll-target="#chart-1">Chart</a></li>
-  <li><a href="#detailed-analysis" id="toc-detailed-analysis" class="nav-link" data-scroll-target="#detailed-analysis">Detailed Analysis</a></li>
-  <li><a href="#data-files-1" id="toc-data-files-1" class="nav-link" data-scroll-target="#data-files-1">Data Files</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -275,38 +272,8 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="lda_topic_modeling.py">lda_topic_modeling.py</a> — the analysis script</li>
 <li><a href="lda_topic_summary.csv">lda_topic_summary.csv</a> — the raw topic summary data</li>
 </ul>
-<hr>
-</section>
-<section id="part-2-near-duplicate-syndicated-story-detection" class="level2">
-<h2 class="anchored" data-anchor-id="part-2-near-duplicate-syndicated-story-detection">Part 2: Near-Duplicate / Syndicated Story Detection</h2>
-<section id="overview-1" class="level3">
-<h3 class="anchored" data-anchor-id="overview-1">Overview</h3>
-<p>This section covers a second analysis: TF-IDF + cosine similarity run on another fresh NewsAPI pull, used to detect articles that are really the same wire story republished by multiple outlets. This is a different technique from Part 1’s LDA topic modeling, and it’s a check none of the other analyses in this repo perform — everywhere else, each row in the dataset is treated as an independent article.</p>
-<p><strong>Tools used:</strong> scikit-learn (<code>TfidfVectorizer</code>, <code>cosine_similarity</code>), a live NewsAPI request.</p>
-</section>
-<section id="chart-1" class="level3">
-<h3 class="anchored" data-anchor-id="chart-1">Chart</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="duplicate_story_detection.png" class="img-fluid figure-img"></p>
-<figcaption>Near-Duplicate / Syndicated Story Detection (fresh NewsAPI pull)</figcaption>
-</figure>
-</div>
-</section>
-<section id="detailed-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="detailed-analysis">Detailed Analysis</h3>
-<p>Of the 98 fresh articles pulled, <strong>10 pairs (12.2% of all articles)</strong> are near-duplicates — the same story republished across outlets. Three pairs are <strong>exact duplicates (similarity = 1.0)</strong>: identical headlines from Yahoo Entertainment/Fortune, PR Newswire UK/PRNewswire, and even the same outlet (Medical Daily) publishing itself twice. Beyond exact copies, there’s a cluster of <strong>paraphrased wire coverage around Fed rate decisions</strong> (NPR, Times of India, Digital Journal all covering the same Fed story at 0.68–0.73 similarity) — meaning what looks like “several sources independently reporting on the Fed” is really a handful of outlets rewriting one wire feed.</p>
-<p>Bottom line: roughly <strong>1 in 8 “distinct” articles</strong> in this dataset isn’t actually independent reporting, which matters for anyone treating raw article counts as a proxy for topic importance elsewhere on this site (e.g., the source-frequency and topic-distribution charts) — those counts are quietly inflated by syndication, not just organic coverage volume.</p>
-</section>
-<section id="data-files-1" class="level3">
-<h3 class="anchored" data-anchor-id="data-files-1">Data Files</h3>
-<ul>
-<li><a href="duplicate_story_detection.py">duplicate_story_detection.py</a> — the analysis script</li>
-<li><a href="duplicate_story_summary.csv">duplicate_story_summary.csv</a> — the full list of detected duplicate pairs</li>
-</ul>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
