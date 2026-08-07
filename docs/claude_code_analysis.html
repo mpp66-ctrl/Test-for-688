@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Manan Patel">
-<meta name="dcterms.date" content="2026-06-11">
 
-<title>Data Gathering – News Analysis Dashboard</title>
+<title>Claude Code Analysis – News Analysis Dashboard</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -25,45 +23,10 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -107,9 +70,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -153,7 +113,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">General News</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./data_gathering.html" aria-current="page"> 
+    <a class="nav-link" href="./data_gathering.html"> 
 <span class="menu-text">Data Gathering</span></a>
   </li>  
   <li class="nav-item">
@@ -173,7 +133,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Without API Data Analysis</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./claude_code_analysis.html"> 
+    <a class="nav-link active" href="./claude_code_analysis.html" aria-current="page"> 
 <span class="menu-text">Claude Code Analysis</span></a>
   </li>  
   <li class="nav-item">
@@ -197,11 +157,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
-  <li><a href="#api-connection" id="toc-api-connection" class="nav-link" data-scroll-target="#api-connection">API Connection</a></li>
-  <li><a href="#load-into-dataframe" id="toc-load-into-dataframe" class="nav-link" data-scroll-target="#load-into-dataframe">Load into DataFrame</a></li>
-  <li><a href="#save-to-csv" id="toc-save-to-csv" class="nav-link" data-scroll-target="#save-to-csv">Save to CSV</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#chart" id="toc-chart" class="nav-link" data-scroll-target="#chart">Chart</a></li>
+  <li><a href="#topic-summary" id="toc-topic-summary" class="nav-link" data-scroll-target="#topic-summary">Topic Summary</a></li>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">Analysis</a></li>
+  <li><a href="#data-files" id="toc-data-files" class="nav-link" data-scroll-target="#data-files">Data Files</a></li>
   </ul>
 </nav>
     </div>
@@ -210,40 +169,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data Gathering</h1>
+<h1 class="title">Claude Code Analysis</h1>
 </div>
 
 
-<div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">Author</div>
-  <div class="quarto-title-meta-heading">Affiliation</div>
-  
-    <div class="quarto-title-meta-contents">
-    <p class="author">Manan Patel </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-        <p class="affiliation">
-            Boston University
-          </p>
-      </div>
-  </div>
 
 <div class="quarto-title-meta">
 
-      
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">June 11, 2026</p>
-    </div>
-  </div>
+    
   
-    <div>
-    <div class="quarto-title-meta-heading">Modified</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date-modified">June 11, 2026</p>
-    </div>
-  </div>
     
   </div>
   
@@ -254,157 +188,85 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>In this section, we gather job market news data using the NewsAPI. The goal is to collect recent articles related to hiring, employment, and the job market to analyze trends over time.</p>
+<p>This page covers an LDA (Latent Dirichlet Allocation) topic modeling analysis run on a fresh NewsAPI pull of job-market articles — a probabilistic topic modeling technique distinct from the hard KMeans clustering used on the Topic Clustering page.</p>
+<p><strong>Tools used:</strong> scikit-learn (<code>CountVectorizer</code>, <code>LatentDirichletAllocation</code>), a live NewsAPI request.</p>
 </section>
-<section id="setup" class="level2">
-<h2 class="anchored" data-anchor-id="setup">Setup</h2>
-<p>We use the following Python libraries:</p>
-<ul>
-<li><code>requests</code> — to call the NewsAPI</li>
-<li><code>pandas</code> — to store and organize the data</li>
-</ul>
-<div id="b12192e8" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="chart" class="level2">
+<h2 class="anchored" data-anchor-id="chart">Chart</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lda_topic_modeling.png" class="img-fluid figure-img"></p>
+<figcaption>LDA Topic Modeling — Job Market News (fresh NewsAPI pull)</figcaption>
+</figure>
 </div>
 </section>
-<section id="api-connection" class="level2">
-<h2 class="anchored" data-anchor-id="api-connection">API Connection</h2>
-<p>We connect to the NewsAPI using our API key and search for articles related to the job market.</p>
-<div id="5c49698e" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>API_KEY <span class="op">=</span> <span class="st">"9d9a703569914e82a61aa211e31ddba1"</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://newsapi.org/v2/everything"</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> {</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"q"</span>: <span class="st">"job market hiring employment"</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"language"</span>: <span class="st">"en"</span>,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"sortBy"</span>: <span class="st">"publishedAt"</span>,</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"pageSize"</span>: <span class="dv">100</span>,</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"apiKey"</span>: API_KEY</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url, params<span class="op">=</span>params)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> response.json()</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Status:"</span>, data[<span class="st">"status"</span>])</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total articles found:"</span>, data[<span class="st">"totalResults"</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Status: ok
-Total articles found: 208</code></pre>
-</div>
-</div>
-</section>
-<section id="load-into-dataframe" class="level2">
-<h2 class="anchored" data-anchor-id="load-into-dataframe">Load into DataFrame</h2>
-<p>We load the articles into a pandas DataFrame for easy analysis.</p>
-<div id="996a87d6" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>articles <span class="op">=</span> data[<span class="st">"articles"</span>]</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(articles)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Shape:"</span>, df.shape)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Shape: (98, 8)</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="3">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<section id="topic-summary" class="level2">
+<h2 class="anchored" data-anchor-id="topic-summary">Topic Summary</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
 <thead>
 <tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">source</th>
-<th data-quarto-table-cell-role="th">author</th>
-<th data-quarto-table-cell-role="th">title</th>
-<th data-quarto-table-cell-role="th">description</th>
-<th data-quarto-table-cell-role="th">url</th>
-<th data-quarto-table-cell-role="th">urlToImage</th>
-<th data-quarto-table-cell-role="th">publishedAt</th>
-<th data-quarto-table-cell-role="th">content</th>
+<th>Topic</th>
+<th>Top Words</th>
+<th>Articles</th>
+<th>Avg. Confidence</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">0</th>
-<td>{'id': None, 'name': 'Federalreserve.gov'}</td>
-<td>None</td>
-<td>Cook, Outlook for the U.S. and Alaskan Economies</td>
-<td>Thank you, Jon, for that kind introduction. It...</td>
-<td>https://www.federalreserve.gov/newsevents/spee...</td>
-<td>https://www.federalreserve.gov/images/social-m...</td>
-<td>2026-08-05T20:05:00Z</td>
-<td>Thank you, Jon, for that kind introduction. It...</td>
+<td>job / ai / hiring</td>
+<td>job, ai, hiring, data, market, new, companies, skills</td>
+<td>34</td>
+<td>0.795</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">1</th>
-<td>{'id': 'financial-post', 'name': 'Financial Po...</td>
-<td>Canadian Cybersecurity Network</td>
-<td>OPINION: Canada’s cybersecurity hiring market ...</td>
-<td>Cybersecurity hiring has reached a&nbsp;seven-quart...</td>
-<td>https://financialpost.com/technology/tech-news...</td>
-<td>https://smartcdn.gprod.postmedia.digital/finan...</td>
-<td>2026-08-05T17:45:19Z</td>
-<td>As cyber threats to critical infrastructure, s...</td>
+<td>market / labor / rate</td>
+<td>market, labor, rate, july, labor market, employment, job, sensex</td>
+<td>19</td>
+<td>0.855</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">2</th>
-<td>{'id': None, 'name': 'Livemint'}</td>
-<td>Kanishka Singharia</td>
-<td>Why Persistent Systems is skipping campus hiri...</td>
-<td>Persistent Systems' decision comes as companie...</td>
-<td>https://www.livemint.com/companies/news/why-pe...</td>
-<td>https://www.livemint.com/lm-img/img/2026/08/05...</td>
-<td>2026-08-05T15:56:12Z</td>
-<td>Persistent Systems has decided to skip campus ...</td>
+<td>federal / rates / reserve</td>
+<td>federal, rates, reserve, federal reserve, inflation, expected, fed, steady</td>
+<td>15</td>
+<td>0.804</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">3</th>
-<td>{'id': None, 'name': 'The New Humanitarian'}</td>
-<td>Obi Anyadike, Oscar Nkala</td>
-<td>South Africa feels the economic cost of anti-m...</td>
-<td>The anti-migrant campaign may be setting the t...</td>
-<td>https://www.thenewhumanitarian.org/analysis/20...</td>
-<td>https://assets.thenewhumanitarian.org/s3fs-pub...</td>
-<td>2026-08-05T13:59:54Z</td>
-<td>South Africas Afrophobic anti-migrant protest ...</td>
+<td>growth / male / nurses</td>
+<td>growth, male, nurses, nursing, south, north, oil, economic</td>
+<td>12</td>
+<td>0.695</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">4</th>
-<td>{'id': None, 'name': 'Crypto Briefing'}</td>
-<td>Editorial Team</td>
-<td>ADP July jobs report misses badly, adding just...</td>
-<td>The weak job growth may pressure the Fed to re...</td>
-<td>https://cryptobriefing.com/adp-july-jobs-repor...</td>
-<td>https://static.cryptobriefing.com/wp-content/u...</td>
-<td>2026-08-05T12:26:36Z</td>
-<td>The weakest monthly gain in six months signals...</td>
+<td>july / post / work</td>
+<td>july, post, work, ai, intelligence, artificial intelligence, artificial, private</td>
+<td>11</td>
+<td>0.799</td>
+</tr>
+<tr class="even">
+<td>social / credit / trade</td>
+<td>social, credit, trade, company, global, earnings, week, inflation</td>
+<td>7</td>
+<td>0.757</td>
 </tr>
 </tbody>
 </table>
-
-</div>
-</div>
-</div>
 </section>
-<section id="save-to-csv" class="level2">
-<h2 class="anchored" data-anchor-id="save-to-csv">Save to CSV</h2>
-<p>We save the raw data to a CSV file for use in later steps.</p>
-<div id="adf27bc8" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">"job_market_news.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Data saved to job_market_news.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Data saved to job_market_news.csv</code></pre>
-</div>
-</div>
+<section id="analysis" class="level2">
+<h2 class="anchored" data-anchor-id="analysis">Analysis</h2>
+<p>Six topics emerged, and the split is uneven: <strong>“job / ai / hiring” dominates at 34 articles (35%)</strong> — general AI-and-hiring coverage — nearly double the next-largest topic. The next tier is <strong>“market / labor / rate” (19)</strong> and <strong>“federal / rates / reserve” (15)</strong>, which together show that macroeconomic/Fed policy commentary is a distinct, sizeable chunk of “job market” coverage, not just noise — something the existing KMeans clusters (labeled things like “Salary &amp; Growth”) don’t call out explicitly as its own theme. The smallest topic, <strong>“social / credit / trade” (7 articles)</strong>, mixes earnings/inflation language — likely coverage that only tangentially touches employment.</p>
+<p>Within the dominant topic, the top-weighted terms — <strong>job, ai, hiring, data, market</strong> — confirm that “AI’s effect on hiring” is currently the single biggest storyline in this news sample, ahead of traditional labor-market or policy framing. Average topic-assignment confidence is high across the board (0.70–0.86), meaning LDA found genuinely separable topics rather than a muddy mix.</p>
 </section>
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<section id="data-files" class="level2">
+<h2 class="anchored" data-anchor-id="data-files">Data Files</h2>
 <ul>
-<li>Connected to NewsAPI successfully</li>
-<li>Retrieved <strong>97 articles</strong> across 8 columns</li>
-<li>Columns include: source, author, title, description, url, urlToImage, publishedAt</li>
-<li>Data saved to <code>job_market_news.csv</code> for cleaning and analysis in the next step</li>
+<li><a href="lda_topic_modeling.py">lda_topic_modeling.py</a> — the analysis script</li>
+<li><a href="lda_topic_summary.csv">lda_topic_summary.csv</a> — the raw topic summary data</li>
 </ul>
 
 

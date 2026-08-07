@@ -182,6 +182,55 @@
     "text": "Summary\n\nConnected to NewsAPI successfully\nRetrieved 97 articles across 8 columns\nColumns include: source, author, title, description, url, urlToImage, publishedAt\nData saved to job_market_news.csv for cleaning and analysis in the next step"
   },
   {
+    "objectID": "claude_code_analysis.html",
+    "href": "claude_code_analysis.html",
+    "title": "Claude Code Analysis",
+    "section": "",
+    "text": "This page covers an LDA (Latent Dirichlet Allocation) topic modeling analysis run on a fresh NewsAPI pull of job-market articles — a probabilistic topic modeling technique distinct from the hard KMeans clustering used on the Topic Clustering page.\nTools used: scikit-learn (CountVectorizer, LatentDirichletAllocation), a live NewsAPI request."
+  },
+  {
+    "objectID": "claude_code_analysis.html#overview",
+    "href": "claude_code_analysis.html#overview",
+    "title": "Claude Code Analysis",
+    "section": "",
+    "text": "This page covers an LDA (Latent Dirichlet Allocation) topic modeling analysis run on a fresh NewsAPI pull of job-market articles — a probabilistic topic modeling technique distinct from the hard KMeans clustering used on the Topic Clustering page.\nTools used: scikit-learn (CountVectorizer, LatentDirichletAllocation), a live NewsAPI request."
+  },
+  {
+    "objectID": "claude_code_analysis.html#chart",
+    "href": "claude_code_analysis.html#chart",
+    "title": "Claude Code Analysis",
+    "section": "Chart",
+    "text": "Chart\n\n\n\nLDA Topic Modeling — Job Market News (fresh NewsAPI pull)"
+  },
+  {
+    "objectID": "claude_code_analysis.html#topic-summary",
+    "href": "claude_code_analysis.html#topic-summary",
+    "title": "Claude Code Analysis",
+    "section": "Topic Summary",
+    "text": "Topic Summary\n\n\n\n\n\n\n\n\n\nTopic\nTop Words\nArticles\nAvg. Confidence\n\n\n\n\njob / ai / hiring\njob, ai, hiring, data, market, new, companies, skills\n34\n0.795\n\n\nmarket / labor / rate\nmarket, labor, rate, july, labor market, employment, job, sensex\n19\n0.855\n\n\nfederal / rates / reserve\nfederal, rates, reserve, federal reserve, inflation, expected, fed, steady\n15\n0.804\n\n\ngrowth / male / nurses\ngrowth, male, nurses, nursing, south, north, oil, economic\n12\n0.695\n\n\njuly / post / work\njuly, post, work, ai, intelligence, artificial intelligence, artificial, private\n11\n0.799\n\n\nsocial / credit / trade\nsocial, credit, trade, company, global, earnings, week, inflation\n7\n0.757"
+  },
+  {
+    "objectID": "claude_code_analysis.html#analysis",
+    "href": "claude_code_analysis.html#analysis",
+    "title": "Claude Code Analysis",
+    "section": "Analysis",
+    "text": "Analysis\nSix topics emerged, and the split is uneven: “job / ai / hiring” dominates at 34 articles (35%) — general AI-and-hiring coverage — nearly double the next-largest topic. The next tier is “market / labor / rate” (19) and “federal / rates / reserve” (15), which together show that macroeconomic/Fed policy commentary is a distinct, sizeable chunk of “job market” coverage, not just noise — something the existing KMeans clusters (labeled things like “Salary & Growth”) don’t call out explicitly as its own theme. The smallest topic, “social / credit / trade” (7 articles), mixes earnings/inflation language — likely coverage that only tangentially touches employment.\nWithin the dominant topic, the top-weighted terms — job, ai, hiring, data, market — confirm that “AI’s effect on hiring” is currently the single biggest storyline in this news sample, ahead of traditional labor-market or policy framing. Average topic-assignment confidence is high across the board (0.70–0.86), meaning LDA found genuinely separable topics rather than a muddy mix."
+  },
+  {
+    "objectID": "claude_code_analysis.html#data-files",
+    "href": "claude_code_analysis.html#data-files",
+    "title": "Claude Code Analysis",
+    "section": "Data Files",
+    "text": "Data Files\n\nlda_topic_modeling.py — the analysis script\nlda_topic_summary.csv — the raw topic summary data"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
     "objectID": "analysis.html",
     "href": "analysis.html",
     "title": "News Analysis",
@@ -222,13 +271,6 @@
     "title": "News Analysis",
     "section": "Word Cloud & Model Performance",
     "text": "Word Cloud & Model Performance\nThe word cloud highlights the most frequent words in positive job market headlines. “job”, “growth”, “market”, and “hiring” appear most prominently. The model performance chart shows precision and recall scores per sentiment class.\n\n\n\nWord Cloud and Model Performance"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
   },
   {
     "objectID": "correlation_insights.html",

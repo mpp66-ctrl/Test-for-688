@@ -26,6 +26,8 @@ website:
         text: Topic Clustering
       - href: no_api_analysis.qmd
         text: Without API Data Analysis
+      - href: claude_code_analysis.qmd
+        text: Claude Code Analysis
       - href: about.qmd
         text: About
 

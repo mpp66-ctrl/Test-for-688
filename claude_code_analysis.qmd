@@ -1,0 +1,53 @@
+---
+title: "Claude Code Analysis"
+---
+
+## Overview
+
+This page covers an LDA (Latent Dirichlet Allocation) topic modeling
+analysis run on a fresh NewsAPI pull of job-market articles — a
+probabilistic topic modeling technique distinct from the hard KMeans
+clustering used on the Topic Clustering page.
+
+**Tools used:** scikit-learn (`CountVectorizer`, `LatentDirichletAllocation`),
+a live NewsAPI request.
+
+## Chart
+
+![LDA Topic Modeling — Job Market News (fresh NewsAPI pull)](lda_topic_modeling.png)
+
+## Topic Summary
+
+| Topic | Top Words | Articles | Avg. Confidence |
+|---|---|---|---|
+| job / ai / hiring | job, ai, hiring, data, market, new, companies, skills | 34 | 0.795 |
+| market / labor / rate | market, labor, rate, july, labor market, employment, job, sensex | 19 | 0.855 |
+| federal / rates / reserve | federal, rates, reserve, federal reserve, inflation, expected, fed, steady | 15 | 0.804 |
+| growth / male / nurses | growth, male, nurses, nursing, south, north, oil, economic | 12 | 0.695 |
+| july / post / work | july, post, work, ai, intelligence, artificial intelligence, artificial, private | 11 | 0.799 |
+| social / credit / trade | social, credit, trade, company, global, earnings, week, inflation | 7 | 0.757 |
+
+## Analysis
+
+Six topics emerged, and the split is uneven: **"job / ai / hiring" dominates
+at 34 articles (35%)** — general AI-and-hiring coverage — nearly double the
+next-largest topic. The next tier is **"market / labor / rate" (19)** and
+**"federal / rates / reserve" (15)**, which together show that
+macroeconomic/Fed policy commentary is a distinct, sizeable chunk of
+"job market" coverage, not just noise — something the existing KMeans
+clusters (labeled things like "Salary & Growth") don't call out explicitly
+as its own theme. The smallest topic, **"social / credit / trade"
+(7 articles)**, mixes earnings/inflation language — likely coverage that
+only tangentially touches employment.
+
+Within the dominant topic, the top-weighted terms — **job, ai, hiring,
+data, market** — confirm that "AI's effect on hiring" is currently the
+single biggest storyline in this news sample, ahead of traditional
+labor-market or policy framing. Average topic-assignment confidence is
+high across the board (0.70–0.86), meaning LDA found genuinely separable
+topics rather than a muddy mix.
+
+## Data Files
+
+- [lda_topic_modeling.py](lda_topic_modeling.py) — the analysis script
+- [lda_topic_summary.csv](lda_topic_summary.csv) — the raw topic summary data
