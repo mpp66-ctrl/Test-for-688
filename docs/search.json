@@ -135,35 +135,35 @@
   {
     "objectID": "duplicate_story_detection.html",
     "href": "duplicate_story_detection.html",
-    "title": "Duplicate Story Detection",
+    "title": "Claude Code Analysis Part 2",
     "section": "",
     "text": "This page covers a TF-IDF + cosine similarity analysis run on a fresh NewsAPI pull, used to detect articles that are really the same wire story republished by multiple outlets. This is a different technique from the LDA topic modeling on the Claude Code Analysis page, and it’s a check none of the other analyses in this repo perform — everywhere else, each row in the dataset is treated as an independent article.\nTools used: scikit-learn (TfidfVectorizer, cosine_similarity), a live NewsAPI request."
   },
   {
     "objectID": "duplicate_story_detection.html#overview",
     "href": "duplicate_story_detection.html#overview",
-    "title": "Duplicate Story Detection",
+    "title": "Claude Code Analysis Part 2",
     "section": "",
     "text": "This page covers a TF-IDF + cosine similarity analysis run on a fresh NewsAPI pull, used to detect articles that are really the same wire story republished by multiple outlets. This is a different technique from the LDA topic modeling on the Claude Code Analysis page, and it’s a check none of the other analyses in this repo perform — everywhere else, each row in the dataset is treated as an independent article.\nTools used: scikit-learn (TfidfVectorizer, cosine_similarity), a live NewsAPI request."
   },
   {
     "objectID": "duplicate_story_detection.html#chart",
     "href": "duplicate_story_detection.html#chart",
-    "title": "Duplicate Story Detection",
+    "title": "Claude Code Analysis Part 2",
     "section": "Chart",
     "text": "Chart\n\n\n\nNear-Duplicate / Syndicated Story Detection (fresh NewsAPI pull)"
   },
   {
     "objectID": "duplicate_story_detection.html#detailed-analysis",
     "href": "duplicate_story_detection.html#detailed-analysis",
-    "title": "Duplicate Story Detection",
+    "title": "Claude Code Analysis Part 2",
     "section": "Detailed Analysis",
     "text": "Detailed Analysis\nOf the 98 fresh articles pulled, 10 pairs (12.2% of all articles) are near-duplicates — the same story republished across outlets. Three pairs are exact duplicates (similarity = 1.0): identical headlines from Yahoo Entertainment/Fortune, PR Newswire UK/PRNewswire, and even the same outlet (Medical Daily) publishing itself twice. Beyond exact copies, there’s a cluster of paraphrased wire coverage around Fed rate decisions (NPR, Times of India, Digital Journal all covering the same Fed story at 0.68–0.73 similarity) — meaning what looks like “several sources independently reporting on the Fed” is really a handful of outlets rewriting one wire feed.\nBottom line: roughly 1 in 8 “distinct” articles in this dataset isn’t actually independent reporting, which matters for anyone treating raw article counts as a proxy for topic importance elsewhere on this site (e.g., the source-frequency and topic-distribution charts) — those counts are quietly inflated by syndication, not just organic coverage volume."
   },
   {
     "objectID": "duplicate_story_detection.html#data-files",
     "href": "duplicate_story_detection.html#data-files",
-    "title": "Duplicate Story Detection",
+    "title": "Claude Code Analysis Part 2",
     "section": "Data Files",
     "text": "Data Files\n\nduplicate_story_detection.py — the analysis script\nduplicate_story_summary.csv — the full list of detected duplicate pairs"
   },

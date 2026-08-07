@@ -29,7 +29,7 @@ website:
       - href: claude_code_analysis.qmd
         text: Claude Code Analysis
       - href: duplicate_story_detection.qmd
-        text: Duplicate Story Detection
+        text: Claude Code Analysis Part 2
       - href: about.qmd
         text: About
 
