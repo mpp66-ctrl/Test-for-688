@@ -259,7 +259,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>requests</code> — to call the NewsAPI</li>
 <li><code>pandas</code> — to store and organize the data</li>
 </ul>
-<div id="12c503c4" class="cell" data-execution_count="1">
+<div id="89209b7d" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -267,7 +267,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="api-connection" class="level2">
 <h2 class="anchored" data-anchor-id="api-connection">API Connection</h2>
 <p>We connect to the NewsAPI using our API key and search for articles related to the job market.</p>
-<div id="999ac862" class="cell" data-execution_count="2">
+<div id="fbb2c112" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>API_KEY <span class="op">=</span> <span class="st">"9d9a703569914e82a61aa211e31ddba1"</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://newsapi.org/v2/everything"</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -293,7 +293,7 @@ Total articles found: 208</code></pre>
 <section id="load-into-dataframe" class="level2">
 <h2 class="anchored" data-anchor-id="load-into-dataframe">Load into DataFrame</h2>
 <p>We load the articles into a pandas DataFrame for easy analysis.</p>
-<div id="dd389343" class="cell" data-execution_count="3">
+<div id="af77ffc4" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>articles <span class="op">=</span> data[<span class="st">"articles"</span>]</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(articles)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -386,7 +386,7 @@ Total articles found: 208</code></pre>
 <section id="save-to-csv" class="level2">
 <h2 class="anchored" data-anchor-id="save-to-csv">Save to CSV</h2>
 <p>We save the raw data to a CSV file for use in later steps.</p>
-<div id="2a11bffe" class="cell" data-execution_count="4">
+<div id="560e7248" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">"job_market_news.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Data saved to job_market_news.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">

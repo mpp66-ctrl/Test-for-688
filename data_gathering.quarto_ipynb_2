@@ -1,0 +1,337 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "cf2ae4ad",
+   "metadata": {},
+   "source": [
+    "---\n",
+    "title: \"Data Gathering\"\n",
+    "author:\n",
+    "  - name: Manan Patel\n",
+    "    affiliations:\n",
+    "      - ref: bu\n",
+    "affiliations:\n",
+    "  - id: bu\n",
+    "    name: Boston University\n",
+    "    city: Boston\n",
+    "    state: MA\n",
+    "date: \"June 11, 2026\"\n",
+    "date-modified: \"June 11, 2026\"\n",
+    "date-format: long\n",
+    "format:\n",
+    "  html:\n",
+    "    default: true\n",
+    "---\n",
+    "\n",
+    "## Overview\n",
+    "\n",
+    "In this section, we gather job market news data using the NewsAPI. The goal is to collect recent articles related to hiring, employment, and the job market to analyze trends over time.\n",
+    "\n",
+    "## Setup\n",
+    "\n",
+    "We use the following Python libraries:\n",
+    "\n",
+    "- `requests` — to call the NewsAPI\n",
+    "- `pandas` — to store and organize the data"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "e26a9582",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import requests\n",
+    "import pandas as pd"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "466ce805",
+   "metadata": {},
+   "source": [
+    "## API Connection\n",
+    "\n",
+    "We connect to the NewsAPI using our API key and search for articles related to the job market."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "e26c380d",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Status: ok\n",
+      "Total articles found: 208\n"
+     ]
+    }
+   ],
+   "source": [
+    "API_KEY = \"9d9a703569914e82a61aa211e31ddba1\"\n",
+    "url = \"https://newsapi.org/v2/everything\"\n",
+    "\n",
+    "params = {\n",
+    "    \"q\": \"job market hiring employment\",\n",
+    "    \"language\": \"en\",\n",
+    "    \"sortBy\": \"publishedAt\",\n",
+    "    \"pageSize\": 100,\n",
+    "    \"apiKey\": API_KEY\n",
+    "}\n",
+    "\n",
+    "response = requests.get(url, params=params)\n",
+    "data = response.json()\n",
+    "\n",
+    "print(\"Status:\", data[\"status\"])\n",
+    "print(\"Total articles found:\", data[\"totalResults\"])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a4115101",
+   "metadata": {},
+   "source": [
+    "## Load into DataFrame\n",
+    "\n",
+    "We load the articles into a pandas DataFrame for easy analysis."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "b0e342de",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Shape: (98, 8)\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>source</th>\n",
+       "      <th>author</th>\n",
+       "      <th>title</th>\n",
+       "      <th>description</th>\n",
+       "      <th>url</th>\n",
+       "      <th>urlToImage</th>\n",
+       "      <th>publishedAt</th>\n",
+       "      <th>content</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>{'id': None, 'name': 'Federalreserve.gov'}</td>\n",
+       "      <td>None</td>\n",
+       "      <td>Cook, Outlook for the U.S. and Alaskan Economies</td>\n",
+       "      <td>Thank you, Jon, for that kind introduction. It...</td>\n",
+       "      <td>https://www.federalreserve.gov/newsevents/spee...</td>\n",
+       "      <td>https://www.federalreserve.gov/images/social-m...</td>\n",
+       "      <td>2026-08-05T20:05:00Z</td>\n",
+       "      <td>Thank you, Jon, for that kind introduction. It...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>{'id': 'financial-post', 'name': 'Financial Po...</td>\n",
+       "      <td>Canadian Cybersecurity Network</td>\n",
+       "      <td>OPINION: Canada’s cybersecurity hiring market ...</td>\n",
+       "      <td>Cybersecurity hiring has reached a seven-quart...</td>\n",
+       "      <td>https://financialpost.com/technology/tech-news...</td>\n",
+       "      <td>https://smartcdn.gprod.postmedia.digital/finan...</td>\n",
+       "      <td>2026-08-05T17:45:19Z</td>\n",
+       "      <td>As cyber threats to critical infrastructure, s...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>{'id': None, 'name': 'Livemint'}</td>\n",
+       "      <td>Kanishka Singharia</td>\n",
+       "      <td>Why Persistent Systems is skipping campus hiri...</td>\n",
+       "      <td>Persistent Systems' decision comes as companie...</td>\n",
+       "      <td>https://www.livemint.com/companies/news/why-pe...</td>\n",
+       "      <td>https://www.livemint.com/lm-img/img/2026/08/05...</td>\n",
+       "      <td>2026-08-05T15:56:12Z</td>\n",
+       "      <td>Persistent Systems has decided to skip campus ...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>{'id': None, 'name': 'The New Humanitarian'}</td>\n",
+       "      <td>Obi Anyadike, Oscar Nkala</td>\n",
+       "      <td>South Africa feels the economic cost of anti-m...</td>\n",
+       "      <td>The anti-migrant campaign may be setting the t...</td>\n",
+       "      <td>https://www.thenewhumanitarian.org/analysis/20...</td>\n",
+       "      <td>https://assets.thenewhumanitarian.org/s3fs-pub...</td>\n",
+       "      <td>2026-08-05T13:59:54Z</td>\n",
+       "      <td>South Africas Afrophobic anti-migrant protest ...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>{'id': None, 'name': 'Crypto Briefing'}</td>\n",
+       "      <td>Editorial Team</td>\n",
+       "      <td>ADP July jobs report misses badly, adding just...</td>\n",
+       "      <td>The weak job growth may pressure the Fed to re...</td>\n",
+       "      <td>https://cryptobriefing.com/adp-july-jobs-repor...</td>\n",
+       "      <td>https://static.cryptobriefing.com/wp-content/u...</td>\n",
+       "      <td>2026-08-05T12:26:36Z</td>\n",
+       "      <td>The weakest monthly gain in six months signals...</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "                                              source  \\\n",
+       "0         {'id': None, 'name': 'Federalreserve.gov'}   \n",
+       "1  {'id': 'financial-post', 'name': 'Financial Po...   \n",
+       "2                   {'id': None, 'name': 'Livemint'}   \n",
+       "3       {'id': None, 'name': 'The New Humanitarian'}   \n",
+       "4            {'id': None, 'name': 'Crypto Briefing'}   \n",
+       "\n",
+       "                           author  \\\n",
+       "0                            None   \n",
+       "1  Canadian Cybersecurity Network   \n",
+       "2              Kanishka Singharia   \n",
+       "3       Obi Anyadike, Oscar Nkala   \n",
+       "4                  Editorial Team   \n",
+       "\n",
+       "                                               title  \\\n",
+       "0   Cook, Outlook for the U.S. and Alaskan Economies   \n",
+       "1  OPINION: Canada’s cybersecurity hiring market ...   \n",
+       "2  Why Persistent Systems is skipping campus hiri...   \n",
+       "3  South Africa feels the economic cost of anti-m...   \n",
+       "4  ADP July jobs report misses badly, adding just...   \n",
+       "\n",
+       "                                         description  \\\n",
+       "0  Thank you, Jon, for that kind introduction. It...   \n",
+       "1  Cybersecurity hiring has reached a seven-quart...   \n",
+       "2  Persistent Systems' decision comes as companie...   \n",
+       "3  The anti-migrant campaign may be setting the t...   \n",
+       "4  The weak job growth may pressure the Fed to re...   \n",
+       "\n",
+       "                                                 url  \\\n",
+       "0  https://www.federalreserve.gov/newsevents/spee...   \n",
+       "1  https://financialpost.com/technology/tech-news...   \n",
+       "2  https://www.livemint.com/companies/news/why-pe...   \n",
+       "3  https://www.thenewhumanitarian.org/analysis/20...   \n",
+       "4  https://cryptobriefing.com/adp-july-jobs-repor...   \n",
+       "\n",
+       "                                          urlToImage           publishedAt  \\\n",
+       "0  https://www.federalreserve.gov/images/social-m...  2026-08-05T20:05:00Z   \n",
+       "1  https://smartcdn.gprod.postmedia.digital/finan...  2026-08-05T17:45:19Z   \n",
+       "2  https://www.livemint.com/lm-img/img/2026/08/05...  2026-08-05T15:56:12Z   \n",
+       "3  https://assets.thenewhumanitarian.org/s3fs-pub...  2026-08-05T13:59:54Z   \n",
+       "4  https://static.cryptobriefing.com/wp-content/u...  2026-08-05T12:26:36Z   \n",
+       "\n",
+       "                                             content  \n",
+       "0  Thank you, Jon, for that kind introduction. It...  \n",
+       "1  As cyber threats to critical infrastructure, s...  \n",
+       "2  Persistent Systems has decided to skip campus ...  \n",
+       "3  South Africas Afrophobic anti-migrant protest ...  \n",
+       "4  The weakest monthly gain in six months signals...  "
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "articles = data[\"articles\"]\n",
+    "df = pd.DataFrame(articles)\n",
+    "\n",
+    "print(\"Shape:\", df.shape)\n",
+    "df.head()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "62b1d318",
+   "metadata": {},
+   "source": [
+    "## Save to CSV\n",
+    "\n",
+    "We save the raw data to a CSV file for use in later steps."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "442f879f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Data saved to job_market_news.csv\n"
+     ]
+    }
+   ],
+   "source": [
+    "df.to_csv(\"job_market_news.csv\", index=False)\n",
+    "print(\"Data saved to job_market_news.csv\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "40bfd53a",
+   "metadata": {},
+   "source": [
+    "## Summary\n",
+    "\n",
+    "- Connected to NewsAPI successfully\n",
+    "- Retrieved **97 articles** across 8 columns\n",
+    "- Columns include: source, author, title, description, url, urlToImage, publishedAt\n",
+    "- Data saved to `job_market_news.csv` for cleaning and analysis in the next step"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3",
+   "path": "C:\\Users\\munni\\AppData\\Local\\Programs\\Python\\Python310\\share\\jupyter\\kernels\\python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
