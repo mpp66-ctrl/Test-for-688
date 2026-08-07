@@ -51,3 +51,47 @@ topics rather than a muddy mix.
 
 - [lda_topic_modeling.py](lda_topic_modeling.py) — the analysis script
 - [lda_topic_summary.csv](lda_topic_summary.csv) — the raw topic summary data
+
+---
+
+## Part 2: Near-Duplicate / Syndicated Story Detection
+
+### Overview
+
+This section covers a second analysis: TF-IDF + cosine similarity run on
+another fresh NewsAPI pull, used to detect articles that are really the same
+wire story republished by multiple outlets. This is a different technique
+from Part 1's LDA topic modeling, and it's a check none of the other
+analyses in this repo perform — everywhere else, each row in the dataset is
+treated as an independent article.
+
+**Tools used:** scikit-learn (`TfidfVectorizer`, `cosine_similarity`), a live
+NewsAPI request.
+
+### Chart
+
+![Near-Duplicate / Syndicated Story Detection (fresh NewsAPI pull)](duplicate_story_detection.png)
+
+### Detailed Analysis
+
+Of the 98 fresh articles pulled, **10 pairs (12.2% of all articles)** are
+near-duplicates — the same story republished across outlets. Three pairs are
+**exact duplicates (similarity = 1.0)**: identical headlines from Yahoo
+Entertainment/Fortune, PR Newswire UK/PRNewswire, and even the same outlet
+(Medical Daily) publishing itself twice. Beyond exact copies, there's a
+cluster of **paraphrased wire coverage around Fed rate decisions** (NPR,
+Times of India, Digital Journal all covering the same Fed story at
+0.68–0.73 similarity) — meaning what looks like "several sources
+independently reporting on the Fed" is really a handful of outlets
+rewriting one wire feed.
+
+Bottom line: roughly **1 in 8 "distinct" articles** in this dataset isn't
+actually independent reporting, which matters for anyone treating raw
+article counts as a proxy for topic importance elsewhere on this site
+(e.g., the source-frequency and topic-distribution charts) — those counts
+are quietly inflated by syndication, not just organic coverage volume.
+
+### Data Files
+
+- [duplicate_story_detection.py](duplicate_story_detection.py) — the analysis script
+- [duplicate_story_summary.csv](duplicate_story_summary.csv) — the full list of detected duplicate pairs
