@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Stock News – News Analysis Dashboard</title>
+<title>Claude Code Analysis Part 3 – News Analysis Dashboard</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -97,7 +97,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./stock_news.html" aria-current="page"> 
+    <a class="nav-link" href="./stock_news.html"> 
 <span class="menu-text">Stock News</span></a>
   </li>  
   <li class="nav-item">
@@ -141,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Claude Code Analysis Part 2</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./category_comparison_analysis.html"> 
+    <a class="nav-link active" href="./category_comparison_analysis.html" aria-current="page"> 
 <span class="menu-text">Claude Code Analysis Part 3</span></a>
   </li>  
   <li class="nav-item">
@@ -165,8 +165,10 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#key-topics" id="toc-key-topics" class="nav-link" data-scroll-target="#key-topics">Key Topics</a></li>
-  <li><a href="#key-findings" id="toc-key-findings" class="nav-link" data-scroll-target="#key-findings">Key Findings</a></li>
+  <li><a href="#chart" id="toc-chart" class="nav-link" data-scroll-target="#chart">Chart</a></li>
+  <li><a href="#category-summary" id="toc-category-summary" class="nav-link" data-scroll-target="#category-summary">Category Summary</a></li>
+  <li><a href="#detailed-analysis" id="toc-detailed-analysis" class="nav-link" data-scroll-target="#detailed-analysis">Detailed Analysis</a></li>
+  <li><a href="#data-files" id="toc-data-files" class="nav-link" data-scroll-target="#data-files">Data Files</a></li>
   </ul>
 </nav>
     </div>
@@ -175,7 +177,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Stock News</h1>
+<h1 class="title">Claude Code Analysis Part 3</h1>
 </div>
 
 
@@ -194,24 +196,103 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>This section covers the latest stock market news and financial analysis.</p>
+<p>This page covers a cross-category headline analysis using NewsAPI’s <code>/v2/top-headlines</code> endpoint — the first analysis in this repo to use that endpoint instead of the job-market <code>/v2/everything</code> query every other script here relies on. It pulls current top headlines across six distinct categories (business, technology, health, science, entertainment, sports) and compares sentiment, subjectivity, and headline structure across them.</p>
+<p><strong>Tools used:</strong> TextBlob (sentiment + subjectivity), a live NewsAPI <code>/v2/top-headlines</code> request across six categories.</p>
 </section>
-<section id="key-topics" class="level2">
-<h2 class="anchored" data-anchor-id="key-topics">Key Topics</h2>
-<ul>
-<li>Stock market trends</li>
-<li>Earnings reports</li>
-<li>Market volatility</li>
-<li>Tech sector performance</li>
-<li>S&amp;P 500 updates</li>
-</ul>
+<section id="chart" class="level2">
+<h2 class="anchored" data-anchor-id="chart">Chart</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="category_comparison_analysis.png" class="img-fluid figure-img"></p>
+<figcaption>Cross-Category Headline Analysis (NewsAPI top-headlines)</figcaption>
+</figure>
+</div>
 </section>
-<section id="key-findings" class="level2">
-<h2 class="anchored" data-anchor-id="key-findings">Key Findings</h2>
+<section id="category-summary" class="level2">
+<h2 class="anchored" data-anchor-id="category-summary">Category Summary</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Category</th>
+<th>Articles</th>
+<th>Avg. Sentiment</th>
+<th>Avg. Subjectivity</th>
+<th>Avg. Word Count</th>
+<th>Top Words</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>technology</td>
+<td>20</td>
+<td>0.164</td>
+<td>0.307</td>
+<td>14.6</td>
+<td>iphone, leak, latest, windows, nintendo</td>
+</tr>
+<tr class="even">
+<td>sports</td>
+<td>20</td>
+<td>0.161</td>
+<td>0.341</td>
+<td>15.5</td>
+<td>nation, news, game, live, updates</td>
+</tr>
+<tr class="odd">
+<td>health</td>
+<td>20</td>
+<td>0.118</td>
+<td>0.356</td>
+<td>16.1</td>
+<td>after, most, which, your, health</td>
+</tr>
+<tr class="even">
+<td>entertainment</td>
+<td>20</td>
+<td>0.087</td>
+<td>0.421</td>
+<td>14.4</td>
+<td>news, into, perfect, stuns, outside</td>
+</tr>
+<tr class="odd">
+<td>science</td>
+<td>19</td>
+<td>0.059</td>
+<td>0.330</td>
+<td>23.7</td>
+<td>space, daily, what, physorg, your</td>
+</tr>
+<tr class="even">
+<td>business</td>
+<td>18</td>
+<td>0.026</td>
+<td>0.170</td>
+<td>14.4</td>
+<td>news, billion, service, thousands, cnbc</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="detailed-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="detailed-analysis">Detailed Analysis</h2>
+<p>Pulled 117 current top headlines across 6 categories via NewsAPI’s <code>/v2/top-headlines</code> endpoint. <strong>Sentiment varies sharply by category</strong>, from <strong>Technology (+0.164)</strong> and <strong>Sports (+0.161)</strong> at the positive end down to <strong>Business (+0.026)</strong>, which is essentially neutral — business headlines are written flatly/factually rather than with emotional framing.</p>
+<p><strong>Subjectivity tells a different story</strong>: Business also has the <em>lowest</em> subjectivity (0.170, most fact-based), while <strong>Entertainment is both moderately positive and the most opinion-laden category (0.421 subjectivity)</strong> — consistent with entertainment coverage leaning into reactions/hot takes rather than neutral reporting.</p>
+<p><strong>Science headlines stand out structurally</strong>, not emotionally: they average <strong>23.7 words</strong>, nearly 60% longer than every other category (~14-16 words) — science journalism apparently needs more words to convey a finding, where sports/entertainment can rely on punchier, shorter headlines.</p>
+<p>The sentiment-vs-subjectivity scatter shows no single category clusters tightly — even within “Business,” headline tone ranges from -0.2 to +1.0 — meaning category alone is a weak predictor of any individual headline’s tone, even though the <em>category averages</em> differ meaningfully.</p>
+</section>
+<section id="data-files" class="level2">
+<h2 class="anchored" data-anchor-id="data-files">Data Files</h2>
 <ul>
-<li>Tech stocks continue to outperform broader market</li>
-<li>AI related companies seeing highest growth</li>
-<li>Energy sector showing stability amid global tensions</li>
+<li><a href="category_comparison_analysis.py">category_comparison_analysis.py</a> — the analysis script</li>
+<li><a href="category_comparison_summary.csv">category_comparison_summary.csv</a> — the per-category summary data</li>
 </ul>
 
 

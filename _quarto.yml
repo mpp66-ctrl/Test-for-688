@@ -30,6 +30,8 @@ website:
         text: Claude Code Analysis
       - href: duplicate_story_detection.qmd
         text: Claude Code Analysis Part 2
+      - href: category_comparison_analysis.qmd
+        text: Claude Code Analysis Part 3
       - href: about.qmd
         text: About
 

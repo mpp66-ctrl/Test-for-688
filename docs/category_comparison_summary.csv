@@ -1,0 +1,7 @@
+category,articles,avg_sentiment,avg_subjectivity,avg_headline_length,avg_word_count,top_words
+technology,20,0.164,0.307,85.05,14.55,"iphone, leak, latest, windows, nintendo"
+sports,20,0.161,0.341,93.45,15.5,"nation, news, game, live, updates"
+health,20,0.118,0.356,94.5,16.05,"after, most, which, your, health"
+entertainment,20,0.087,0.421,90.5,14.45,"news, into, perfect, stuns, outside"
+science,19,0.059,0.33,138.947,23.684,"space, daily, what, physorg, your"
+business,18,0.026,0.17,87.333,14.389,"news, billion, service, thousands, cnbc"

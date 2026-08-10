@@ -210,6 +210,55 @@
     "text": "Data\nTwo CSV files were generated from this analysis:\n\ncorrelation_analysis_data.csv — full article dataset with computed features\ncorrelation_summary.csv — summary of all correlation coefficients and p-values"
   },
   {
+    "objectID": "category_comparison_analysis.html",
+    "href": "category_comparison_analysis.html",
+    "title": "Claude Code Analysis Part 3",
+    "section": "",
+    "text": "This page covers a cross-category headline analysis using NewsAPI’s /v2/top-headlines endpoint — the first analysis in this repo to use that endpoint instead of the job-market /v2/everything query every other script here relies on. It pulls current top headlines across six distinct categories (business, technology, health, science, entertainment, sports) and compares sentiment, subjectivity, and headline structure across them.\nTools used: TextBlob (sentiment + subjectivity), a live NewsAPI /v2/top-headlines request across six categories."
+  },
+  {
+    "objectID": "category_comparison_analysis.html#overview",
+    "href": "category_comparison_analysis.html#overview",
+    "title": "Claude Code Analysis Part 3",
+    "section": "",
+    "text": "This page covers a cross-category headline analysis using NewsAPI’s /v2/top-headlines endpoint — the first analysis in this repo to use that endpoint instead of the job-market /v2/everything query every other script here relies on. It pulls current top headlines across six distinct categories (business, technology, health, science, entertainment, sports) and compares sentiment, subjectivity, and headline structure across them.\nTools used: TextBlob (sentiment + subjectivity), a live NewsAPI /v2/top-headlines request across six categories."
+  },
+  {
+    "objectID": "category_comparison_analysis.html#chart",
+    "href": "category_comparison_analysis.html#chart",
+    "title": "Claude Code Analysis Part 3",
+    "section": "Chart",
+    "text": "Chart\n\n\n\nCross-Category Headline Analysis (NewsAPI top-headlines)"
+  },
+  {
+    "objectID": "category_comparison_analysis.html#category-summary",
+    "href": "category_comparison_analysis.html#category-summary",
+    "title": "Claude Code Analysis Part 3",
+    "section": "Category Summary",
+    "text": "Category Summary\n\n\n\n\n\n\n\n\n\n\n\nCategory\nArticles\nAvg. Sentiment\nAvg. Subjectivity\nAvg. Word Count\nTop Words\n\n\n\n\ntechnology\n20\n0.164\n0.307\n14.6\niphone, leak, latest, windows, nintendo\n\n\nsports\n20\n0.161\n0.341\n15.5\nnation, news, game, live, updates\n\n\nhealth\n20\n0.118\n0.356\n16.1\nafter, most, which, your, health\n\n\nentertainment\n20\n0.087\n0.421\n14.4\nnews, into, perfect, stuns, outside\n\n\nscience\n19\n0.059\n0.330\n23.7\nspace, daily, what, physorg, your\n\n\nbusiness\n18\n0.026\n0.170\n14.4\nnews, billion, service, thousands, cnbc"
+  },
+  {
+    "objectID": "category_comparison_analysis.html#detailed-analysis",
+    "href": "category_comparison_analysis.html#detailed-analysis",
+    "title": "Claude Code Analysis Part 3",
+    "section": "Detailed Analysis",
+    "text": "Detailed Analysis\nPulled 117 current top headlines across 6 categories via NewsAPI’s /v2/top-headlines endpoint. Sentiment varies sharply by category, from Technology (+0.164) and Sports (+0.161) at the positive end down to Business (+0.026), which is essentially neutral — business headlines are written flatly/factually rather than with emotional framing.\nSubjectivity tells a different story: Business also has the lowest subjectivity (0.170, most fact-based), while Entertainment is both moderately positive and the most opinion-laden category (0.421 subjectivity) — consistent with entertainment coverage leaning into reactions/hot takes rather than neutral reporting.\nScience headlines stand out structurally, not emotionally: they average 23.7 words, nearly 60% longer than every other category (~14-16 words) — science journalism apparently needs more words to convey a finding, where sports/entertainment can rely on punchier, shorter headlines.\nThe sentiment-vs-subjectivity scatter shows no single category clusters tightly — even within “Business,” headline tone ranges from -0.2 to +1.0 — meaning category alone is a weak predictor of any individual headline’s tone, even though the category averages differ meaningfully."
+  },
+  {
+    "objectID": "category_comparison_analysis.html#data-files",
+    "href": "category_comparison_analysis.html#data-files",
+    "title": "Claude Code Analysis Part 3",
+    "section": "Data Files",
+    "text": "Data Files\n\ncategory_comparison_analysis.py — the analysis script\ncategory_comparison_summary.csv — the per-category summary data"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
     "objectID": "analysis.html",
     "href": "analysis.html",
     "title": "News Analysis",
@@ -250,13 +299,6 @@
     "title": "News Analysis",
     "section": "Word Cloud & Model Performance",
     "text": "Word Cloud & Model Performance\nThe word cloud highlights the most frequent words in positive job market headlines. “job”, “growth”, “market”, and “hiring” appear most prominently. The model performance chart shows precision and recall scores per sentiment class.\n\n\n\nWord Cloud and Model Performance"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
   },
   {
     "objectID": "claude_code_analysis.html",
@@ -326,14 +368,14 @@
     "href": "data_gathering.html#api-connection",
     "title": "Data Gathering",
     "section": "API Connection",
-    "text": "API Connection\nWe connect to the NewsAPI using our API key and search for articles related to the job market.\n\nAPI_KEY = \"9d9a703569914e82a61aa211e31ddba1\"\nurl = \"https://newsapi.org/v2/everything\"\n\nparams = {\n    \"q\": \"job market hiring employment\",\n    \"language\": \"en\",\n    \"sortBy\": \"publishedAt\",\n    \"pageSize\": 100,\n    \"apiKey\": API_KEY\n}\n\nresponse = requests.get(url, params=params)\ndata = response.json()\n\nprint(\"Status:\", data[\"status\"])\nprint(\"Total articles found:\", data[\"totalResults\"])\n\nStatus: ok\nTotal articles found: 208"
+    "text": "API Connection\nWe connect to the NewsAPI using our API key and search for articles related to the job market.\n\nAPI_KEY = \"9d9a703569914e82a61aa211e31ddba1\"\nurl = \"https://newsapi.org/v2/everything\"\n\nparams = {\n    \"q\": \"job market hiring employment\",\n    \"language\": \"en\",\n    \"sortBy\": \"publishedAt\",\n    \"pageSize\": 100,\n    \"apiKey\": API_KEY\n}\n\nresponse = requests.get(url, params=params)\ndata = response.json()\n\nprint(\"Status:\", data[\"status\"])\nprint(\"Total articles found:\", data[\"totalResults\"])\n\nStatus: ok\nTotal articles found: 230"
   },
   {
     "objectID": "data_gathering.html#load-into-dataframe",
     "href": "data_gathering.html#load-into-dataframe",
     "title": "Data Gathering",
     "section": "Load into DataFrame",
-    "text": "Load into DataFrame\nWe load the articles into a pandas DataFrame for easy analysis.\n\narticles = data[\"articles\"]\ndf = pd.DataFrame(articles)\n\nprint(\"Shape:\", df.shape)\ndf.head()\n\nShape: (98, 8)\n\n\n\n\n\n\n\n\n\nsource\nauthor\ntitle\ndescription\nurl\nurlToImage\npublishedAt\ncontent\n\n\n\n\n0\n{'id': None, 'name': 'Federalreserve.gov'}\nNone\nCook, Outlook for the U.S. and Alaskan Economies\nThank you, Jon, for that kind introduction. It...\nhttps://www.federalreserve.gov/newsevents/spee...\nhttps://www.federalreserve.gov/images/social-m...\n2026-08-05T20:05:00Z\nThank you, Jon, for that kind introduction. It...\n\n\n1\n{'id': 'financial-post', 'name': 'Financial Po...\nCanadian Cybersecurity Network\nOPINION: Canada’s cybersecurity hiring market ...\nCybersecurity hiring has reached a seven-quart...\nhttps://financialpost.com/technology/tech-news...\nhttps://smartcdn.gprod.postmedia.digital/finan...\n2026-08-05T17:45:19Z\nAs cyber threats to critical infrastructure, s...\n\n\n2\n{'id': None, 'name': 'Livemint'}\nKanishka Singharia\nWhy Persistent Systems is skipping campus hiri...\nPersistent Systems' decision comes as companie...\nhttps://www.livemint.com/companies/news/why-pe...\nhttps://www.livemint.com/lm-img/img/2026/08/05...\n2026-08-05T15:56:12Z\nPersistent Systems has decided to skip campus ...\n\n\n3\n{'id': None, 'name': 'The New Humanitarian'}\nObi Anyadike, Oscar Nkala\nSouth Africa feels the economic cost of anti-m...\nThe anti-migrant campaign may be setting the t...\nhttps://www.thenewhumanitarian.org/analysis/20...\nhttps://assets.thenewhumanitarian.org/s3fs-pub...\n2026-08-05T13:59:54Z\nSouth Africas Afrophobic anti-migrant protest ...\n\n\n4\n{'id': None, 'name': 'Crypto Briefing'}\nEditorial Team\nADP July jobs report misses badly, adding just...\nThe weak job growth may pressure the Fed to re...\nhttps://cryptobriefing.com/adp-july-jobs-repor...\nhttps://static.cryptobriefing.com/wp-content/u...\n2026-08-05T12:26:36Z\nThe weakest monthly gain in six months signals..."
+    "text": "Load into DataFrame\nWe load the articles into a pandas DataFrame for easy analysis.\n\narticles = data[\"articles\"]\ndf = pd.DataFrame(articles)\n\nprint(\"Shape:\", df.shape)\ndf.head()\n\nShape: (98, 8)\n\n\n\n\n\n\n\n\n\nsource\nauthor\ntitle\ndescription\nurl\nurlToImage\npublishedAt\ncontent\n\n\n\n\n0\n{'id': None, 'name': 'Forkast.news'}\nDana Ellison\nThe Junior-Gap Paradox: Stanford Data Shows AI...\nIn early 2026, unemployment for new graduates ...\nhttps://forkast.news/the-junior-gap-paradox-st...\nhttps://forkast.news/wp-content/uploads/2026/0...\n2026-08-08T19:11:36Z\nIn early 2026, unemployment for new graduates ...\n\n\n1\n{'id': 'fortune', 'name': 'Fortune'}\nSebastian Herrera\nAI Is changing work faster than the data can k...\nRecent studies have shown AI having a positive...\nhttps://fortune.com/2026/08/08/ai-is-changing-...\nhttps://fortune.com/img-assets/wp-content/uplo...\n2026-08-08T12:00:00Z\nNo one can agree on whether AI is taking away ...\n\n\n2\n{'id': None, 'name': 'Yahoo Entertainment'}\nSebastian Herrera\nAI is changing work faster than the data can k...\nRecent studies have shown AI having a positive...\nhttps://finance.yahoo.com/technology/ai/articl...\nhttps://s.yimg.com/lo/mysterio/api/E58D54D2FBE...\n2026-08-08T12:00:00Z\nNo one can agree on whether AI is taking away ...\n\n\n3\n{'id': 'the-times-of-india', 'name': 'The Time...\nANI\nAI-linked hiring in India outpaces job losses ...\nArtificial intelligence is creating more jobs ...\nhttps://economictimes.indiatimes.com/jobs/hr-p...\nhttps://img.etimg.com/thumb/msid-133051199,wid...\n2026-08-08T11:07:10Z\nNew Delhi: Artificial intelligence (AI) is cre...\n\n\n4\n{'id': None, 'name': 'Realinvestmentadvice.com'}\nLance Roberts\nAI Narrative Risk: The Hyperscaler Story Chang...\nAt a Glance\\n\\n\\n&lt;ul&gt;&lt;!-- wp:list-item --&gt;\\r\\...\nhttps://realinvestmentadvice.com/resources/blo...\nhttps://realinvestmentadvice.com/wp-content/up...\n2026-08-08T09:58:56Z\nThe week the labor market cracked was the week..."
   },
   {
     "objectID": "data_gathering.html#save-to-csv",
